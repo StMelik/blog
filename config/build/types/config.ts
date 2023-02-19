@@ -4,11 +4,12 @@ export interface BuildPaths {
   entry: string;
   build: string;
   html: string;
+  src: string;
 }
 
 export interface BuildEnv {
-  mode: Configuration['mode'],
-  port: number
+  mode: Configuration['mode'];
+  port: number;
 }
 
 export interface BuildOptions {
