@@ -1,9 +1,14 @@
 .navBar {
   display: flex;
   align-items: center;
-  column-gap: 25px;
-  justify-content: flex-end;
   padding: 0 15px;
   height: var(--navbar-height);
   background-color: var(--inverted-bg-color);
+}
+
+.navLinks {
+  margin-left: auto;
+  display: flex;
+  column-gap: 25px;
+  align-items: center;
 }
