@@ -13,15 +13,17 @@ const paths: BuildPaths = {
 const config = (env: BuildEnv) => {
   const mode = env.mode || 'development';
   const PORT = env.port || 3000;
-  
+  const open = env.open || false;
+
   const isDev = mode === 'development';
 
   return buildWebpackConfig({
     mode,
     paths,
     isDev,
-    port: PORT
-  })
+    port: PORT,
+    open
+  });
 };
 
 export default config;
