@@ -1,4 +1,6 @@
-import { ProgressPlugin, WebpackPluginInstance, HotModuleReplacementPlugin } from 'webpack';
+import {
+  ProgressPlugin, WebpackPluginInstance, HotModuleReplacementPlugin, DefinePlugin
+} from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
@@ -14,6 +16,9 @@ export const buildPlugins = ({ isDev, paths }: BuildOptions): WebpackPluginInsta
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css'
+    }),
+    new DefinePlugin({
+      __IS_DEV__: isDev
     })
   ];
 

@@ -34,6 +34,10 @@ module.exports = {
     'react/prop-types': 'off',
     'react/function-component-definition': 'off',
     'no-shadow': 'off',
-    'react/require-default-props': 'off'
+    'react/require-default-props': 'off',
+    'no-underscore-dangle': 'off'
+  },
+  globals: {
+    __IS_DEV__: true
   }
 };
