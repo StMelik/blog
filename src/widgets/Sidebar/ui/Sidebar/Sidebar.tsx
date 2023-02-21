@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button';
 import { LangSwitcher } from 'widgets/LangSwitcher';
@@ -9,7 +9,7 @@ interface SidebarProps {
   className?: string;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
+export const Sidebar: FC<SidebarProps> = ({ className }) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const handleCollapsed = () => {

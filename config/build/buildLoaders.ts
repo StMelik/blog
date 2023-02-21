@@ -18,11 +18,11 @@ export const buildLoaders = ({ isDev }: BuildOptions): RuleSetRule[] => {
         options: {
           modules: {
             auto: /\.module\./,
-            localIdentName: isDev 
+            localIdentName: isDev
               ? '[path][name]__[local]--[hash:base64:5]'
               : '[hash:base64:8]'
-          },
-        },
+          }
+        }
       },
       'sass-loader'
     ]
@@ -51,8 +51,8 @@ export const buildLoaders = ({ isDev }: BuildOptions): RuleSetRule[] => {
         presets: ['@babel/preset-env'],
         plugins: [
           ['i18next-extract', {
-              locales: ['ru', 'en'],
-              keyAsDefaultValue: ['ru']
+            locales: ['ru', 'en'],
+            keyAsDefaultValue: ['ru']
           }]
         ]
       }
