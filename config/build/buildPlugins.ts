@@ -1,6 +1,7 @@
-import { ProgressPlugin, WebpackPluginInstance } from 'webpack';
+import { ProgressPlugin, WebpackPluginInstance, HotModuleReplacementPlugin } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 import { BuildOptions } from './types/config';
 
@@ -16,9 +17,10 @@ export const buildPlugins = ({ isDev, paths }: BuildOptions): WebpackPluginInsta
     })
   ];
 
-  if (isDev) {
-    plugins.push();
-  }
+  const developmentPlugins = [
+    new HotModuleReplacementPlugin(),
+    new ReactRefreshWebpackPlugin()
+  ];
 
-  return plugins;
+  return isDev ? plugins.concat(developmentPlugins) : plugins;
 };
