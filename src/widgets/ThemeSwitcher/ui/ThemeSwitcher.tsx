@@ -4,7 +4,6 @@ import { Button } from 'shared/ui/Button';
 import { ButtonTheme } from 'shared/ui/Button/ui/Button';
 import SwitcherIcon from 'shared/assets/icons/theme-switcher.svg';
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
-import cls from './ThemeSwitcher.module.scss';
 import { FC } from 'react';
 
 interface ThemeSwitcherProps {
@@ -21,7 +20,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
 
   return (
     <Button
-      className={classNames(cls.themeSwitcher, {}, [className])}
+      className={classNames('', {}, [className])}
       onClick={toggleTheme}
       theme={ButtonTheme.CLEAR}
     >

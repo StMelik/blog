@@ -14,7 +14,9 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: [
-    'react'
+    'react',
+    '@typescript-eslint',
+    'i18next'
   ],
   rules: {
     'react/jsx-filename-extension': [2, { extensions: ['.tsx', '.jsx'] }],
@@ -24,6 +26,7 @@ module.exports = {
       svg: 'always'
     }],
     'comma-dangle': ['error', 'never'],
+    'i18next/no-literal-string': 2,
     'no-unused-vars': 'warn',
     'react/jsx-props-no-spreading': 'warn',
     'import/no-extraneous-dependencies': 'warn',
