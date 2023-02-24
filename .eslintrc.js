@@ -1,7 +1,8 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
+    jest: true
   },
   extends: [
     'plugin:react/recommended',
@@ -24,6 +25,10 @@ module.exports = {
       ts: 'never',
       lazy: 'igmorePackages',
       svg: 'always'
+    }],
+    'max-len': [2, {
+      code: 120,
+      ignoreComments: true
     }],
     'comma-dangle': ['error', 'never'],
     'i18next/no-literal-string': 2,
