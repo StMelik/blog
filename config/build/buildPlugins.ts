@@ -23,8 +23,8 @@ export const buildPlugins = ({ isDev, paths }: BuildOptions): WebpackPluginInsta
   ];
 
   const developmentPlugins = [
-    new HotModuleReplacementPlugin(),
-    new ReactRefreshWebpackPlugin()
+    new HotModuleReplacementPlugin()
+    // new ReactRefreshWebpackPlugin()
   ];
 
   return isDev ? plugins.concat(developmentPlugins) : plugins;
