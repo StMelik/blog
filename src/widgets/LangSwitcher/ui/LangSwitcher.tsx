@@ -10,9 +10,10 @@ export enum AppLang {
 
 interface LangSwitcherProps {
   className?: string;
+  short?: boolean;
 }
 
-export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
+export const LangSwitcher: FC<LangSwitcherProps> = ({ className, short }) => {
   const { t, i18n } = useTranslation();
 
   const handleToggleLang = () => {
@@ -24,7 +25,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
       className={classNames('', {}, [className])}
       onClick={handleToggleLang}
     >
-      {t('Язык')}
+      {t(short ? 'Короткий язык' : 'Язык')}
     </Button>
   );
 };

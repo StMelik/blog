@@ -48,7 +48,8 @@ module.exports = {
     'react/function-component-definition': 'off',
     'no-shadow': 'off',
     'react/require-default-props': 'off',
-    'no-underscore-dangle': 'off'
+    'no-underscore-dangle': 'off',
+    'linebreak-style': 'off'
   },
   globals: {
     __IS_DEV__: true
