@@ -6,32 +6,30 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    'airbnb'
+    'airbnb',
+    'plugin:storybook/recommended'
   ],
   parser: '@typescript-eslint/parser',
-  overrides: [
-    {
-      files: ['./src/**/*.test.{ts,tsx}'],
-      rules: {
-        'i18next/no-literal-string': 'off'
-      }
+  overrides: [{
+    files: ['./src/**/*.test.{ts,tsx}'],
+    rules: {
+      'i18next/no-literal-string': 'off'
     }
-  ],
+  }],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: [
-    'react',
-    '@typescript-eslint',
-    'i18next'
-  ],
+  plugins: ['react', '@typescript-eslint', 'i18next'],
   rules: {
-    'react/jsx-filename-extension': [2, { extensions: ['.tsx', '.jsx'] }],
+    'react/jsx-filename-extension': [2, {
+      extensions: ['.tsx', '.jsx']
+    }],
     'import/extensions': [2, {
       ts: 'never',
       lazy: 'igmorePackages',
-      svg: 'always'
+      svg: 'always',
+      scss: 'always'
     }],
     'max-len': [2, {
       code: 120,
