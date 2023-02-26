@@ -12,6 +12,7 @@ export const NavBar: FC<NavBarProps> = ({ className }) => {
   const { t } = useTranslation();
 
   return (
+    // eslint-disable-next-line i18next/no-literal-string
     <div className={classNames(cls.navBar, {}, [className])}>
       /
     </div>

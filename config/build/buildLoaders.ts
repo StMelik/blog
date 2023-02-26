@@ -33,7 +33,7 @@ export const buildLoaders = ({ isDev }: BuildOptions): RuleSetRule[] => {
         plugins: [
           ['i18next-extract', {
             locales: ['ru', 'en'],
-            keyAsDefaultValue: ['ru'],
+            keyAsDefaultValue: ['ru', 'en'],
             outputPath: 'public/locales/{{locale}}/{{ns}}.json'
           }]
         ]
