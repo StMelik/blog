@@ -20,14 +20,14 @@ export const buildPlugins = ({ isDev, paths }: BuildOptions): WebpackPluginInsta
     }),
     new DefinePlugin({
       __IS_DEV__: isDev
-    }),
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false
     })
   ];
 
   const developmentPlugins = [
-    new HotModuleReplacementPlugin()
+    new HotModuleReplacementPlugin(),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false
+    })
     // new ReactRefreshWebpackPlugin()
   ];
 
