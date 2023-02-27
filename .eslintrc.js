@@ -20,7 +20,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: ['react', '@typescript-eslint', 'i18next'],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
   rules: {
     'react/jsx-filename-extension': [2, {
       extensions: ['.tsx', '.jsx']
@@ -37,6 +37,8 @@ module.exports = {
     }],
     'comma-dangle': ['error', 'never'],
     'i18next/no-literal-string': 2,
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
     'no-unused-vars': 'warn',
     'react/jsx-props-no-spreading': 'warn',
     'import/no-extraneous-dependencies': 'warn',
@@ -49,7 +51,10 @@ module.exports = {
     'no-shadow': 'off',
     'react/require-default-props': 'off',
     'no-underscore-dangle': 'off',
-    'linebreak-style': 'off'
+    'linebreak-style': 'off',
+    'no-tabs': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off'
   },
   globals: {
     __IS_DEV__: true
