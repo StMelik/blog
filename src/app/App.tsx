@@ -5,7 +5,6 @@ import { NavBar } from 'widgets/NavBar';
 import { Sidebar } from 'widgets/Sidebar';
 import { Suspense, useState } from 'react';
 import { AppRouter } from './providers/router';
-import { Modal } from 'shared/ui/Modal/Modal';
 
 export function App() {
   const { theme } = useTheme();
