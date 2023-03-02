@@ -3,11 +3,18 @@ import { useTheme } from './providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { NavBar } from 'widgets/NavBar';
 import { Sidebar } from 'widgets/Sidebar';
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { AppRouter } from './providers/router';
+import { useDispatch } from 'react-redux';
+import { userActions } from 'entities/User';
 
 export function App() {
   const { theme } = useTheme();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(userActions.initAuthData());
+  }, [dispatch]);
 
   const [isOpen, setIsOpen] = useState(false);
 
