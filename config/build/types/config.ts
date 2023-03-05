@@ -11,12 +11,10 @@ export interface BuildEnv {
   mode: Configuration['mode'];
   port: number;
   open: boolean;
+  analyzer: boolean;
 }
 
-export interface BuildOptions {
-  mode: Configuration['mode'];
+export interface BuildOptions extends BuildEnv {
   paths: BuildPaths;
   isDev: boolean;
-  port: number;
-  open: boolean
 }

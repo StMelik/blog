@@ -14,6 +14,7 @@ const config = (env: BuildEnv) => {
   const mode = env.mode || 'development';
   const PORT = env.port || 3000;
   const open = env.open || false;
+  const analyzer = env.analyzer || false;
 
   const isDev = mode === 'development';
 
@@ -22,7 +23,8 @@ const config = (env: BuildEnv) => {
     paths,
     isDev,
     port: PORT,
-    open
+    open,
+    analyzer
   });
 };
 
