@@ -4,7 +4,7 @@ import { Button } from 'shared/ui/Button';
 import { ButtonTheme } from 'shared/ui/Button/ui/Button';
 import SwitcherIcon from 'shared/assets/icons/theme-switcher.svg';
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 interface ThemeSwitcherProps {
   className?: string;
@@ -15,7 +15,7 @@ enum IconTheme {
   DARK = '#0115C6'
 }
 
-export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
+export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -27,4 +27,4 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
       <SwitcherIcon fill={theme === Theme.LIGHT ? IconTheme.LIGHT : IconTheme.DARK} />
     </Button>
   );
-};
+});

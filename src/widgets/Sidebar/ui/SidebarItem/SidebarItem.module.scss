@@ -1,0 +1,21 @@
+.sidebarItem {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.link {
+  opacity: 1;
+  transition: all .2s;
+}
+
+.icon {
+  fill: var(--inverted-primary-color)
+}
+
+.collapsed {
+  .link {
+    opacity: 0;
+    width: 0;
+  }
+}
