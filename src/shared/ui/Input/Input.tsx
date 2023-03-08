@@ -4,13 +4,14 @@ import {
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'placeholder'>
 
 interface InputProps extends HTMLInputProps {
   className?: string;
   value?: string
   onChange?: (value: string) => void
-  autofocus?: boolean
+  autofocus?: boolean,
+  placeholder?: string | null
 }
 
 export const Input: FC<InputProps> = memo(({
@@ -22,7 +23,7 @@ export const Input: FC<InputProps> = memo(({
   autofocus,
   ...oterProps
 }) => {
-  const ref = useRef<HTMLInputElement>();
+  const ref = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
   const [caretPosition, setCaretPosition] = useState(0);
 

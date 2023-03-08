@@ -12,7 +12,7 @@ interface ThemeProviderProps {
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
   useEffect(() => {
-    document.body.className = localStorage.getItem(LOCAL_STORAGE_THEME_KEY);
+    document.body.className = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) || '';
   });
 
   const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
