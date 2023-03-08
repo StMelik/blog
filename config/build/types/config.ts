@@ -12,6 +12,7 @@ export interface BuildEnv {
   port: number;
   open: boolean;
   analyzer: boolean;
+  apiUrl: string;
 }
 
 export interface BuildOptions extends BuildEnv {

@@ -15,6 +15,7 @@ const config = (env: BuildEnv) => {
   const PORT = env.port || 3000;
   const open = env.open || false;
   const analyzer = env.analyzer || false;
+  const apiUrl = env.apiUrl || 'http://localhost:8000';
 
   const isDev = mode === 'development';
 
@@ -24,7 +25,8 @@ const config = (env: BuildEnv) => {
     isDev,
     port: PORT,
     open,
-    analyzer
+    analyzer,
+    apiUrl
   });
 };
 

@@ -59,6 +59,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off'
   },
   globals: {
-    __IS_DEV__: true
+    __IS_DEV__: true,
+    __API__: true
   }
 };

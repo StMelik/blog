@@ -11,7 +11,14 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { BuildOptions } from './types/config';
 
-export const buildPlugins = ({ isDev, paths, analyzer }: BuildOptions): WebpackPluginInstance[] => {
+export const buildPlugins = (options: BuildOptions): WebpackPluginInstance[] => {
+  const {
+    isDev,
+    paths,
+    analyzer,
+    apiUrl
+  } = options;
+
   const plugins = [
     new HtmlWebpackPlugin({
       template: paths.html
@@ -22,7 +29,8 @@ export const buildPlugins = ({ isDev, paths, analyzer }: BuildOptions): WebpackP
       chunkFilename: 'css/[name].[contenthash:8].css'
     }),
     new DefinePlugin({
-      __IS_DEV__: isDev
+      __IS_DEV__: JSON.stringify(isDev),
+      __API__: JSON.stringify(apiUrl)
     })
   ];
 
