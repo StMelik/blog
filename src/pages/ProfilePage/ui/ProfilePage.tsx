@@ -1,9 +1,23 @@
-import { fetchProfileData, ProfileCard, profileReducer } from 'entities/Profile';
-import { FC, useEffect } from 'react';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
+import {
+  fetchProfileData,
+  getProfileData,
+  getProfileError,
+  getProfileForm,
+  getProfileIsLoading,
+  getProfileReadonly,
+  profileActions,
+  ProfileCard,
+  profileReducer
+} from 'entities/Profile';
+import { FC, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLouder, ReducersList } from 'shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { ProfilePageHeader } from './PgofilePageHeader/ProfilePageHeader';
 import cls from './ProfilePage.module.scss';
 
 const reducers: ReducersList = {
@@ -18,14 +32,93 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
+  const form = useSelector(getProfileForm);
+  const isLoading = useSelector(getProfileIsLoading);
+  const error = useSelector(getProfileError);
+  const readonly = useSelector(getProfileReadonly);
+
   useEffect(() => {
     dispatch(fetchProfileData());
   }, [dispatch]);
 
+  const handleChangeFirstName = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ first: value || '' }));
+    },
+    [dispatch]
+  );
+
+  const handleChangeLastName = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ lastname: value || '' }));
+    },
+    [dispatch]
+  );
+
+  const handleChangeCity = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ city: value || '' }));
+    },
+    [dispatch]
+  );
+
+  const handleChangeAge = useCallback(
+    (value?: string) => {
+      const isNumber = /^\d+$/.test(value || '');
+
+      if (isNumber) {
+        dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
+      }
+    },
+    [dispatch]
+  );
+
+  const handleChangeUsername = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ username: value || '' }));
+    },
+    [dispatch]
+  );
+
+  const handleChangeAvatar = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfile({ avatar: value || '' }));
+    },
+    [dispatch]
+  );
+
+  const handleChangeCurrency = useCallback(
+    (currency: Currency) => {
+      dispatch(profileActions.updateProfile({ currency }));
+    },
+    [dispatch]
+  );
+
+  const handleChangeCountry = useCallback(
+    (country: Country) => {
+      dispatch(profileActions.updateProfile({ country }));
+    },
+    [dispatch]
+  );
+
   return (
     <DynamicModuleLouder reducers={reducers} removeAfterUnmount>
       <div className={classNames(cls.profilePage, {}, [className])}>
-        <ProfileCard />
+        <ProfilePageHeader />
+        <ProfileCard
+          data={form}
+          isLoading={isLoading}
+          error={error}
+          handleChangeFirstName={handleChangeFirstName}
+          handleChangeLastName={handleChangeLastName}
+          handleChangeCity={handleChangeCity}
+          handleChangeAge={handleChangeAge}
+          handleChangeAvatar={handleChangeAvatar}
+          handleChangeUsername={handleChangeUsername}
+          handleChangeCurrency={handleChangeCurrency}
+          handleChangeCountry={handleChangeCountry}
+          readonly={readonly}
+        />
       </div>
     </DynamicModuleLouder>
   );
