@@ -26,7 +26,8 @@ const config = (env: BuildEnv) => {
     port: PORT,
     open,
     analyzer,
-    apiUrl
+    apiUrl,
+    project: 'frontend'
   });
 };
 

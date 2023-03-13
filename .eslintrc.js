@@ -29,7 +29,8 @@ module.exports = {
       ts: 'never',
       lazy: 'igmorePackages',
       svg: 'always',
-      scss: 'always'
+      scss: 'always',
+      jpg: 'always'
     }],
     'max-len': [2, {
       code: 120,
@@ -61,6 +62,7 @@ module.exports = {
   },
   globals: {
     __IS_DEV__: true,
-    __API__: true
+    __API__: true,
+    __PROJECT__: true
   }
 };

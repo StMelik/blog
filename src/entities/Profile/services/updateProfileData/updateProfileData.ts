@@ -8,7 +8,7 @@ export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<Val
   'profile/updateProfileData',
   async (_, thunkApi) => {
     const {
-      extra, dispatch, rejectWithValue, getState
+      extra, rejectWithValue, getState
     } = thunkApi;
 
     const formData = getProfileForm(getState());

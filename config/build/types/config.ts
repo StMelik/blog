@@ -18,4 +18,5 @@ export interface BuildEnv {
 export interface BuildOptions extends BuildEnv {
   paths: BuildPaths;
   isDev: boolean;
+  project: 'storybook' | 'frontend' | 'jest';
 }
