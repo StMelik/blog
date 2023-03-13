@@ -31,8 +31,8 @@
   "profile": {
     "first": "Станислав",
     "lastname": "Иванов",
-    "age": 30,
-    "currency": "USD",
+    "age": 3,
+    "currency": "EUR",
     "country": "Russia",
     "city": "Moscow",
     "username": "admin",
