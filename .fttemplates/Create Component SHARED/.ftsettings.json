@@ -1,0 +1,9 @@
+{
+  "omitParentDirectory": true,
+  "customVariables": ["type=>shared"],
+  "openFilesWhenDone": [
+    "[FTName % pascalcase]/[FTName % pascalcase].stories.tsx",
+    "[FTName % pascalcase]/[FTName % pascalcase].module.scss",
+    "[FTName % pascalcase]/[FTName % pascalcase].tsx"
+  ]
+}

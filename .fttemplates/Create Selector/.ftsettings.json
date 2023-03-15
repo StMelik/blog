@@ -1,0 +1,7 @@
+{
+  "omitParentDirectory": true,
+  "openFilesWhenDone": [
+    "[FTName % camelcase]/[FTName % camelcase].test.ts",
+    "[FTName % camelcase]/[FTName % camelcase].ts"
+  ]
+}

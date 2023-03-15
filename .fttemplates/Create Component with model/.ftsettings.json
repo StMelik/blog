@@ -1,0 +1,9 @@
+{
+  "omitParentDirectory": true,
+  "customVariables": ["type=>entities"],
+  "openFilesWhenDone": [
+    "[FTName % pascalcase]/ui/[FTName % pascalcase].stories.tsx",
+    "[FTName % pascalcase]/ui/[FTName % pascalcase].module.scss",
+    "[FTName % pascalcase]/ui/[FTName % pascalcase].tsx"
+  ]
+}
