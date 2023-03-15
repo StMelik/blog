@@ -42,8 +42,12 @@ export const Select = memo((props: SelectProps) => {
     [options]
   );
 
+  const mods: Mods = {
+    [cls.readonly]: readonly
+  };
+
   return (
-    <div className={classNames(cls.wrapper, {}, [className])}>
+    <div className={classNames(cls.wrapper, mods, [className])}>
       {label && <span className={cls.label}>{`${label}>`}</span>}
       <select className={cls.select} value={value} onChange={handleChange} disabled={readonly}>
         {optionsList}

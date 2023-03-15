@@ -9,8 +9,15 @@ interface UseThemeResult {
 export const useTheme = (): UseThemeResult => {
   const { theme, setTheme } = useContext(ThemeContext);
 
+  const getNextTheme = () => {
+    const values = Object.values(Theme);
+    const index = values.findIndex((v) => v === theme);
+
+    return index === values.length - 1 ? values[0] : values[index + 1];
+  };
+
   const toggleTheme = () => {
-    const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
+    const newTheme = getNextTheme();
 
     setTheme?.(newTheme);
     document.body.className = newTheme;
