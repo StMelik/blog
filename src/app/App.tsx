@@ -1,34 +1,28 @@
 /* eslint-disable i18next/no-literal-string */
-import { useTheme } from './providers/ThemeProvider';
+import { getUserInited, userActions } from 'entities/User';
+import { Suspense, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { NavBar } from 'widgets/NavBar';
 import { Sidebar } from 'widgets/Sidebar';
-import { Suspense, useEffect, useState } from 'react';
 import { AppRouter } from './providers/router';
-import { useDispatch } from 'react-redux';
-import { userActions } from 'entities/User';
 
 export function App() {
-  const { theme } = useTheme();
   const dispatch = useDispatch();
+
+  const inited = useSelector(getUserInited);
 
   useEffect(() => {
     dispatch(userActions.initAuthData());
   }, [dispatch]);
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleOpen = () => {
-    setIsOpen(true);
-  };
-
   return (
     <div className={classNames('app', {}, [])}>
-      <Suspense fallback={<div>Загрузка...</div>}>
+      <Suspense fallback="">
         <NavBar />
         <div className="content-page">
           <Sidebar />
-          <AppRouter />
+          {inited && <AppRouter />}
         </div>
       </Suspense>
     </div>
