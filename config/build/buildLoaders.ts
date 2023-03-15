@@ -1,9 +1,12 @@
 import { RuleSetRule } from 'webpack';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 import { buildCssLoader } from './loaders/buildCssLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
 import { BuildOptions } from './types/config';
 
-export const buildLoaders = ({ isDev }: BuildOptions): RuleSetRule[] => {
+export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
+  const { isDev } = options;
+
   const tsLoader = {
     test: /\.tsx?$/,
     use: 'ts-loader',
@@ -23,23 +26,7 @@ export const buildLoaders = ({ isDev }: BuildOptions): RuleSetRule[] => {
     ]
   };
 
-  const babelLoader = {
-    test: /\.(js|jsx|tsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env'],
-        plugins: [
-          ['i18next-extract', {
-            locales: ['ru', 'en'],
-            keyAsDefaultValue: ['ru', 'en'],
-            outputPath: 'public/locales/{{locale}}/{{ns}}.json'
-          }]
-        ]
-      }
-    }
-  };
+  const babelLoader = buildBabelLoader(options);
 
   return [
     svgLoader,
