@@ -5,8 +5,8 @@ const initialState: Schema = {
   error: undefined
 };
 
-export const <FTName % lowercase>Slice = createSlice({
-  name: '[FTName % lowercase]',
+export const <FTName % camelcase>Slice = createSlice({
+  name: '[FTName % camelcase]',
   initialState,
   reducers: {
     reducerName: (state, action: PayloadAction<string>) => {
@@ -29,5 +29,5 @@ export const <FTName % lowercase>Slice = createSlice({
   }
 });
 
-export const { actions: <FTName % lowercase>Actions } = <FTName % lowercase>Slice;
-export const { reducer: <FTName % lowercase>Reducer } = <FTName % lowercase>Slice;
+export const { actions: <FTName % camelcase>Actions } = <FTName % camelcase>Slice;
+export const { reducer: <FTName % camelcase>Reducer } = <FTName % camelcase>Slice;
