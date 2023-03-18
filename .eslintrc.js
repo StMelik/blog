@@ -11,9 +11,13 @@ module.exports = {
   ],
   parser: '@typescript-eslint/parser',
   overrides: [{
-    files: ['./src/**/*.test.{ts,tsx}'],
+    files: [
+      './src/**/*.test.{ts,tsx}',
+      './src/**/*.stories.{ts,tsx}'
+    ],
     rules: {
-      'i18next/no-literal-string': 'off'
+      'i18next/no-literal-string': 'off',
+      'max-len': 'off'
     }
   }],
   parserOptions: {

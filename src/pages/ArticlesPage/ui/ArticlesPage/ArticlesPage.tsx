@@ -13,7 +13,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
   return (
     <div className={classNames(cls.articlesPage, {}, [className])}>
-      ArticlesPage
+      {/* ArticlesPage */}
     </div>
   );
 };

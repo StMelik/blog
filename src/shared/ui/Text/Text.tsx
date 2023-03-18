@@ -12,21 +12,27 @@ export enum TextAlign {
   LEFT = 'left',
   CENTER = 'center'
 }
+
+export enum TextSize {
+  M = 'size_m',
+  L = 'size_l'
+}
 interface TextProps {
   className?: string;
   title?: string | null;
   text?: string | null;
   theme?: TextTheme;
   align?: TextAlign;
+  size?: TextSize
 }
 
 export const Text = memo((props: TextProps) => {
   const {
-    className, title, text, theme = TextTheme.PRIMARY, align = TextAlign.LEFT
+    className, title, text, theme = TextTheme.PRIMARY, align = TextAlign.LEFT, size = TextSize.M
   } = props;
 
   return (
-    <div className={classNames(cls.text, {}, [className, cls[theme], cls[align]])}>
+    <div className={classNames(cls.text, {}, [className, cls[theme], cls[align], cls[size]])}>
       {title && <p className={cls.title}>{title}</p>}
       {text && <p className={cls.text}>{text}</p>}
     </div>
