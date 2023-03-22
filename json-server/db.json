@@ -39,18 +39,62 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "hello",
+      "id": "Mmza7Gr"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "test comment",
+      "id": "PhU7x5m"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hello world",
+      "id": "KrMAXz3"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "haha",
+      "id": "jqcPDfE"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "norm",
+      "id": "yMd3T41"
     }
   ],
-  "profile": {
-    "first": "Станислав",
-    "lastname": "Иванов",
-    "age": 30,
-    "currency": "EUR",
-    "country": "Russia",
-    "city": "Moscow",
-    "username": "admin",
-    "avatar": "https://i.pinimg.com/222x/71/f4/94/71f49475aadd82338485844f50e167f9.jpg"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "first": "Станислав",
+      "lastname": "Иванов",
+      "age": 30,
+      "currency": "EUR",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "admin",
+      "avatar": "https://i.pinimg.com/222x/71/f4/94/71f49475aadd82338485844f50e167f9.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Анатолий",
+      "lastname": "Баранов",
+      "age": 333,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Karaganda",
+      "username": "bara228",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQADxKBqWGp4ovszHPo1bgz0uD51olEKaxw&usqp=CAU"
+    }
+  ],
   "users": [
     {
       "id": "1",
@@ -60,11 +104,11 @@
       "avatar": "https://i.pinimg.com/222x/71/f4/94/71f49475aadd82338485844f50e167f9.jpg"
     },
     {
-      "id": "1",
-      "username": "user",
+      "id": "2",
+      "username": "bara228",
       "password": "0000",
       "role": "USER",
-      "avatar": "https://i.pinimg.com/222x/71/f4/94/71f49475aadd82338485844f50e167f9.jpg"
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQADxKBqWGp4ovszHPo1bgz0uD51olEKaxw&usqp=CAU"
     }
   ],
   "articles": [
@@ -75,7 +119,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",

@@ -16,9 +16,11 @@ import {
 import { FC, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLouder, ReducersList } from 'shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfilePageHeader } from './PgofilePageHeader/ProfilePageHeader';
 import cls from './ProfilePage.module.scss';
@@ -35,6 +37,8 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
+  const { id } = useParams<{ id: string }>();
+
   const form = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
@@ -49,11 +53,11 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
     [ValidateProfileError.NO_DATA]: t('Данные не указаны')
   };
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id));
     }
-  }, [dispatch]);
+  });
 
   const handleChangeFirstName = useCallback(
     (value?: string) => {

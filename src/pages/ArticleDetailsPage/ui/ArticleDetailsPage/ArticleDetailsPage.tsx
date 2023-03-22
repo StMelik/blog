@@ -12,6 +12,9 @@ import { getArticleCommentsIsLoading } from '../../model/selectors/comments/comm
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { AddCommentForm } from 'features/AddCommentForm';
+import { useCallback } from 'react';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -31,6 +34,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
+  const handleSendComment = useCallback((text: string) => {
+    dispatch(addCommentForArticle(text));
+  }, [dispatch]);
+
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
   });
@@ -44,6 +51,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
       <div className={classNames(cls.articleDetailsPage, {}, [className])}>
         <ArticleDetails id={id} />
         <Text className={cls.commentTitle} title={t('Комментарии')} />
+        <AddCommentForm onSendComment={handleSendComment} />
         <CommentList comments={comments} isLoading={commentsIsLoading} />
       </div>
     </DynamicModuleLouder>

@@ -2,8 +2,10 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react/';
 import { CommentCard } from './CommentCard';
 
+import Avatar from 'shared/assets/tests/storybook.jpg';
+
 export default {
-  title: 'entities/CommentCard',
+  title: 'entities/Comment/CommentCard',
   component: CommentCard,
   argTypes: {
     backgroundColor: { control: 'color' }
@@ -13,5 +15,31 @@ export default {
 const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
-Primary.decorators = [];
+Primary.args = {
+  comment: {
+    id: '1',
+    text: '1 comment',
+    user: {
+      id: '1',
+      username: 'AUG',
+      avatar: Avatar
+    }
+  }
+};
+
+export const NoAvatar = Template.bind({});
+NoAvatar.args = {
+  comment: {
+    id: '1',
+    text: '1 comment',
+    user: {
+      id: '1',
+      username: 'AUG'
+    }
+  }
+};
+
+export const Loading = Template.bind({});
+Loading.args = {
+  isLoading: true
+};
