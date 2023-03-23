@@ -1,15 +1,14 @@
 import { FC, memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { Button } from 'shared/ui/Button';
 import { ButtonSize, ButtonTheme } from 'shared/ui/Button/ui/Button';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import cls from './Sidebar.module.scss';
-import { SidebarItemsList } from '../../model/items';
+import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
+import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
   className?: string;
@@ -19,6 +18,8 @@ export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const { t } = useTranslation();
+
+  const sidebarItemsList = useSelector(getSidebarItems);
 
   const handleCollapsed = () => {
     setCollapsed((prev) => !prev);
@@ -38,7 +39,7 @@ export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
       </Button>
 
       <div className={cls.items}>
-        {SidebarItemsList.map((item) => (
+        {sidebarItemsList.map((item) => (
           <SidebarItem
             key={item.path}
             item={item}
