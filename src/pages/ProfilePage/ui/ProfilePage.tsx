@@ -125,7 +125,11 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
       <Page className={classNames(cls.profilePage, {}, [className])}>
         <ProfilePageHeader />
         {validateErrors?.length && validateErrors.map((err) => (
-          <Text key={err} theme={TextTheme.ERROR} text={validateErrorTranslates[err]} />
+          <Text
+            key={err}
+            theme={TextTheme.ERROR}
+            text={validateErrorTranslates[err]}
+          />
         ))}
 
         <ProfileCard

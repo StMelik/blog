@@ -1,31 +1,41 @@
-import { Article, ArticleList, ArticleView } from 'entities/Article';
-import { ariclePageActions, ariclePageReducer, getArticles } from '../../model/slice/ariclePageSlice';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLouder, ReducersList } from 'shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
-import cls from './ArticlesPage.module.scss';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { useSelector } from 'react-redux';
+
+import { classNames } from 'shared/lib/classNames/classNames';
+import {
+  DynamicModuleLouder,
+  ReducersList
+} from 'shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from 'shared/ui/Page/Page';
+
+import { ArticleList, ArticleView } from 'entities/Article';
+
+import { ArticleViewSelector } from 'features/ArticleViewSelector';
+
+import { fetchMoreArticlesList } from '../../model/services/fetchMoreArticlesList/fetchMoreArticlesList';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
   getArticlesPageError,
-  getArticlesPageHasMore,
   getArticlesPageIsLoading,
-  getArticlesPageNum,
   getArticlesPageView
 } from '../../model/selectors/articlesPageSelectors';
-import { ArticleViewSelector } from 'features/ArticleViewSelector';
-import { useCallback } from 'react';
-import { Page } from 'shared/ui/Page/Page';
-import { fetchMoreArticlesList } from 'pages/ArticlesPage/model/services/fetchMoreArticlesList/fetchMoreArticlesList';
+import {
+  articlesPageActions,
+  articlesPageReducer,
+  getArticles
+} from '../../model/slice/articlesPageSlice';
+
+import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
   className?: string;
 }
 
 const reducers: ReducersList = {
-  articlesPage: ariclePageReducer
+  articlesPage: articlesPageReducer
 };
 
 const ArticlesPage = (props: ArticlesPageProps) => {
@@ -41,7 +51,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   const view = useSelector(getArticlesPageView);
 
   const handleChangeView = useCallback((view: ArticleView) => {
-    dispatch(ariclePageActions.setView(view));
+    dispatch(articlesPageActions.setView(view));
   }, [dispatch]);
 
   const handleLoadNextPage = useCallback(() => {
@@ -49,12 +59,11 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(ariclePageActions.initState());
-    dispatch(fetchArticlesList({ page: 1 }));
+    dispatch(initArticlesPage());
   });
 
   return (
-    <DynamicModuleLouder reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLouder reducers={reducers}>
       <Page
         onScrollEnd={handleLoadNextPage}
         className={classNames(cls.articlesPage, {}, [className])}

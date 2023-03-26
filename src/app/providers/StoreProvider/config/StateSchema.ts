@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 
 import {
-  AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject
+  AnyAction, CombinedState, Reducer, ReducersMapObject
 } from '@reduxjs/toolkit';
 import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
 import { AxiosInstance } from 'axios';
@@ -12,8 +12,7 @@ import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
-import { AriclePageSchema } from 'pages/ArticlesPage';
-import { NavigateOptions, To } from 'react-router';
+import { ArticlesPageSchema } from 'pages/ArticlesPage';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -25,7 +24,7 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
   addCommentForm?: AddCommentFormSchema;
-  articlesPage?: AriclePageSchema;
+  articlesPage?: ArticlesPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
@@ -43,7 +42,6 @@ export interface ReduxStoreWithManager extends ToolkitStore<StateSchema> {
 
 export interface ThunkExtraArg {
   api: AxiosInstance;
-  navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 export interface ThunkConfig<T> {

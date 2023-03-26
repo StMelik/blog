@@ -3,16 +3,17 @@ import { StateSchema } from 'app/providers/StoreProvider';
 import { Article, ArticleView } from 'entities/Article';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/constants/localStorage';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
-import { AriclePageSchema } from '../types/AriclePageSchema';
+import { ArticlesPageSchema } from '../types/ArticlesPageSchema';
 
-const initialState: AriclePageSchema = {
+const initialState: ArticlesPageSchema = {
   isLoading: false,
   error: undefined,
   entities: {},
   ids: [],
   view: ArticleView.GRID,
   page: 1,
-  hasMore: true
+  hasMore: true,
+  _inited: false
 };
 
 const articlesAdapter = createEntityAdapter<Article>({
@@ -23,7 +24,7 @@ export const getArticles = articlesAdapter.getSelectors<StateSchema>(
   (state) => state.articlesPage || articlesAdapter.getInitialState(initialState)
 );
 
-export const ariclePageSlice = createSlice({
+export const articlesPageSlice = createSlice({
   name: 'articlesPage',
   initialState: articlesAdapter.getInitialState(initialState),
   reducers: {
@@ -40,6 +41,7 @@ export const ariclePageSlice = createSlice({
       const view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView;
       state.view = view;
       state.limit = view === ArticleView.GRID ? 9 : 4;
+      state._inited = true;
     }
   },
   extraReducers: (builder) => {
@@ -60,5 +62,5 @@ export const ariclePageSlice = createSlice({
   }
 });
 
-export const { actions: ariclePageActions } = ariclePageSlice;
-export const { reducer: ariclePageReducer } = ariclePageSlice;
+export const { actions: articlesPageActions } = articlesPageSlice;
+export const { reducer: articlesPageReducer } = articlesPageSlice;
