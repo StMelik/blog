@@ -7,9 +7,9 @@ import { RequireAuth } from './RequireAuth';
 export const AppRouter = memo(() => {
   const renderWithWrapper = useCallback((route: AppRoutesProps) => {
     const element = (
-      <div className="page-wrapper">
+      <Suspense fallback={<LoaderPage />}>
         {route.element}
-      </div>
+      </Suspense>
     );
 
     return (

@@ -21,6 +21,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLouder, ReducersList } from 'shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from 'shared/ui/Page/Page';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfilePageHeader } from './PgofilePageHeader/ProfilePageHeader';
 import cls from './ProfilePage.module.scss';
@@ -121,7 +122,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 
   return (
     <DynamicModuleLouder reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.profilePage, {}, [className])}>
+      <Page className={classNames(cls.profilePage, {}, [className])}>
         <ProfilePageHeader />
         {validateErrors?.length && validateErrors.map((err) => (
           <Text key={err} theme={TextTheme.ERROR} text={validateErrorTranslates[err]} />
@@ -141,7 +142,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
           handleChangeCountry={handleChangeCountry}
           readonly={readonly}
         />
-      </div>
+      </Page>
     </DynamicModuleLouder>
   );
 };

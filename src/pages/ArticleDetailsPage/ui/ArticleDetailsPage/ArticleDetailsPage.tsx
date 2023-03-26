@@ -18,6 +18,7 @@ import { addCommentForArticle } from '../../model/services/addCommentForArticle/
 import { Button } from 'shared/ui/Button';
 import { ButtonTheme } from 'shared/ui/Button/ui/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -51,12 +52,12 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   });
 
   if (!id) {
-    return <div className={classNames(cls.articleDetailsPage, {}, [className])}>{t('Статья не найдена')}</div>;
+    return <Page className={classNames(cls.articleDetailsPage, {}, [className])}>{t('Статья не найдена')}</Page>;
   }
 
   return (
     <DynamicModuleLouder reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.articleDetailsPage, {}, [className])}>
+      <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
         <Button theme={ButtonTheme.OUTLINE} onClick={handleBackToList}>
           {t('Назад к списку')}
         </Button>
@@ -64,7 +65,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         <Text className={cls.commentTitle} title={t('Комментарии')} />
         <AddCommentForm onSendComment={handleSendComment} />
         <CommentList comments={comments} isLoading={commentsIsLoading} />
-      </div>
+      </Page>
     </DynamicModuleLouder>
   );
 };
