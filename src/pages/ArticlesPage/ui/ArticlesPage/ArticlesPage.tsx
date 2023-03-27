@@ -9,7 +9,7 @@ import {
 } from 'shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 
 import { ArticleList, ArticleView } from 'entities/Article';
 
@@ -67,6 +67,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
       <Page
         onScrollEnd={handleLoadNextPage}
         className={classNames(cls.articlesPage, {}, [className])}
+        isSaveScroll
       >
         <ArticleViewSelector view={view} onViewClick={handleChangeView} />
         <ArticleList
