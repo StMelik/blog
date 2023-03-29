@@ -9,7 +9,7 @@ describe('initArticlesPage', () => {
       }
     });
 
-    await thunk.callThunk();
+    await thunk.callThunk(null);
 
     expect(thunk.dispatch).toBeCalledTimes(2);
   });
@@ -21,7 +21,7 @@ describe('initArticlesPage', () => {
       }
     });
 
-    await thunk.callThunk();
+    await thunk.callThunk(null);
 
     expect(thunk.dispatch).toBeCalledTimes(4);
   });

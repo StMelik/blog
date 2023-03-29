@@ -10,5 +10,6 @@
   },
   "cSpell.words": [
     "скролла"
-  ]
+  ],
+  "jest.rootPath": "src", // ?
 }
