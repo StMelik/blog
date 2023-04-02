@@ -1,6 +1,3 @@
 import { lazy } from 'react';
 
-export const ArticleEditPageLazy = lazy(() => new Promise((resolve) => {
-  // @ts-ignore
-  setTimeout(() => resolve(import('./ArticleEditPage')), 1000);
-}));
+export const ArticleEditPageLazy = lazy(() => import('./ArticleEditPage'));
