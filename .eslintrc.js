@@ -24,7 +24,13 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'i18next',
+    'react-hooks',
+    'fsd-import-helper'
+  ],
   rules: {
     'react/jsx-filename-extension': [2, {
       extensions: ['.tsx', '.jsx']
@@ -44,6 +50,7 @@ module.exports = {
     'i18next/no-literal-string': 2,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
+    'fsd-import-helper/path-checker': 'error',
     'no-unused-vars': 'warn',
     'react/jsx-props-no-spreading': 'warn',
     'import/no-extraneous-dependencies': 'warn',
