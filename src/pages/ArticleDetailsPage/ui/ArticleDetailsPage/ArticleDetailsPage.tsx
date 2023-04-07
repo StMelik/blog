@@ -31,6 +31,7 @@ import {
 } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader';
+import { VStack } from 'shared/ui/Stack';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -71,29 +72,29 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   return (
     <DynamicModuleLouder reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
-        <ArticleDetailsPageHeader />
+        <VStack gap="16" max>
+          <ArticleDetailsPageHeader />
 
-        <ArticleDetails id={id} />
+          <ArticleDetails id={id} />
 
-        <Text
-          size={TextSize.L}
-          className={cls.recommendationsTitle}
-          title={t('Рекомендуем')}
-        />
-        <ArticleList
-          target="_blank"
-          className={cls.recommendationsList}
-          articles={recommendations}
-          isLoading={recommendationsIsLoading}
-        />
+          <Text
+            size={TextSize.L}
+            title={t('Рекомендуем')}
+          />
+          <ArticleList
+            target="_blank"
+            className={cls.recommendationsList}
+            articles={recommendations}
+            isLoading={recommendationsIsLoading}
+          />
 
-        <Text
-          size={TextSize.L}
-          className={cls.commentTitle}
-          title={t('Комментарии')}
-        />
-        <AddCommentForm onSendComment={handleSendComment} />
-        <CommentList comments={comments} isLoading={commentsIsLoading} />
+          <Text
+            size={TextSize.L}
+            title={t('Комментарии')}
+          />
+          <AddCommentForm onSendComment={handleSendComment} />
+          <CommentList comments={comments} isLoading={commentsIsLoading} />
+        </VStack>
       </Page>
     </DynamicModuleLouder>
   );

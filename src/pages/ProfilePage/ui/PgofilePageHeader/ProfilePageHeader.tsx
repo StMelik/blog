@@ -9,8 +9,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from 'shared/ui/Button';
 import { ButtonTheme } from 'shared/ui/Button/ui/Button';
+import { HStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
-import cls from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
   className?: string;
@@ -42,26 +42,23 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
   }, [dispatch]);
 
   return (
-    <div className={classNames(cls.profilePageHeader, {}, [className])}>
+    <HStack max justify="between" className={classNames('', {}, [className])}>
       <Text title={t('Профиль')} />
-      {canEdit && (
-        <div className={cls.btnWrapper}>
-          {readonly ? (
-            <Button className={cls.editBtn} theme={ButtonTheme.OUTLINE} onClick={handleEdit}>
-              {t('Редактировать')}
+      {canEdit && readonly
+        ? (
+          <Button theme={ButtonTheme.OUTLINE} onClick={handleEdit}>
+            {t('Редактировать')}
+          </Button>
+        ) : (
+          <HStack gap="8">
+            <Button theme={ButtonTheme.OUTLINE_RED} onClick={handleCancelEdit}>
+              {t('Отменить')}
             </Button>
-          ) : (
-            <>
-              <Button className={cls.editBtn} theme={ButtonTheme.OUTLINE_RED} onClick={handleCancelEdit}>
-                {t('Отменить')}
-              </Button>
-              <Button className={cls.editBtn} theme={ButtonTheme.OUTLINE} onClick={handleSave}>
-                {t('Сохранить')}
-              </Button>
-            </>
-          )}
-        </div>
-      )}
-    </div>
+            <Button theme={ButtonTheme.OUTLINE} onClick={handleSave}>
+              {t('Сохранить')}
+            </Button>
+          </HStack>
+        )}
+    </HStack>
   );
 };

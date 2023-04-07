@@ -25,6 +25,7 @@ import { Page } from 'widgets/Page/Page';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfilePageHeader } from './PgofilePageHeader/ProfilePageHeader';
 import cls from './ProfilePage.module.scss';
+import { VStack } from 'shared/ui/Stack';
 
 const reducers: ReducersList = {
   profile: profileReducer
@@ -123,29 +124,31 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
   return (
     <DynamicModuleLouder reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.profilePage, {}, [className])}>
-        <ProfilePageHeader />
-        {validateErrors?.length && validateErrors.map((err) => (
-          <Text
-            key={err}
-            theme={TextTheme.ERROR}
-            text={validateErrorTranslates[err]}
-          />
-        ))}
+        <VStack max gap="16">
+          <ProfilePageHeader />
+          {validateErrors?.length && validateErrors.map((err) => (
+            <Text
+              key={err}
+              theme={TextTheme.ERROR}
+              text={validateErrorTranslates[err]}
+            />
+          ))}
 
-        <ProfileCard
-          data={form}
-          isLoading={isLoading}
-          error={error}
-          handleChangeFirstName={handleChangeFirstName}
-          handleChangeLastName={handleChangeLastName}
-          handleChangeCity={handleChangeCity}
-          handleChangeAge={handleChangeAge}
-          handleChangeAvatar={handleChangeAvatar}
-          handleChangeUsername={handleChangeUsername}
-          handleChangeCurrency={handleChangeCurrency}
-          handleChangeCountry={handleChangeCountry}
-          readonly={readonly}
-        />
+          <ProfileCard
+            data={form}
+            isLoading={isLoading}
+            error={error}
+            handleChangeFirstName={handleChangeFirstName}
+            handleChangeLastName={handleChangeLastName}
+            handleChangeCity={handleChangeCity}
+            handleChangeAge={handleChangeAge}
+            handleChangeAvatar={handleChangeAvatar}
+            handleChangeUsername={handleChangeUsername}
+            handleChangeCurrency={handleChangeCurrency}
+            handleChangeCountry={handleChangeCountry}
+            readonly={readonly}
+          />
+        </VStack>
       </Page>
     </DynamicModuleLouder>
   );
