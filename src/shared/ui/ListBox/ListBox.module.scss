@@ -18,9 +18,23 @@
   box-shadow: 4px 4px 8px var(--listbox-bg);
   min-width: 100%;
 
-  &.optionTop {
+  &.optionTopLeft {
+    bottom: 100%;
+    right: 0;
+    box-shadow: -4px -4px 8px var(--listbox-bg);
+  }
+
+  &.optionTopRight {
     bottom: 100%;
     box-shadow: 4px -4px 8px var(--listbox-bg);
+  }
+
+  // &.optionBottomRight {
+  // }
+
+  &.optionBottomLeft {
+    right: 0;
+    box-shadow: -4px 4px 8px var(--listbox-bg);
   }
 }
 

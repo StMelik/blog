@@ -4,8 +4,7 @@ import cls from './ListBox.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from '../Button';
 import { HStack } from '../Stack';
-
-type DropdownDirection = 'top' | 'bottom';
+import { DropdownDirection } from 'shared/types/ui';
 
 export interface ListBoxItem {
   value: string;
@@ -25,8 +24,10 @@ interface ListBoxProps {
 }
 
 const mapDirectionClass: Record<DropdownDirection, string> = {
-  bottom: cls.optionBottom,
-  top: cls.optionTop
+  'top left': cls.optionTopLeft,
+  'top right': cls.optionTopRight,
+  'bottom right': cls.optionBottomRight,
+  'bottom left': cls.optionBottomLeft
 };
 
 export const ListBox = (props: ListBoxProps) => {
@@ -38,7 +39,7 @@ export const ListBox = (props: ListBoxProps) => {
     onChange,
     readonly,
     label,
-    direction = 'bottom'
+    direction = 'bottom right'
   } = props;
 
   const optionsClasses = [mapDirectionClass[direction]];
