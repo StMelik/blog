@@ -129,6 +129,12 @@
       "userId": "2",
       "text": "1231as",
       "id": "qzKibx_"
+    },
+    {
+      "articleId": "9",
+      "userId": "1",
+      "text": "asdasd",
+      "id": "5uPwc0v"
     }
   ],
   "profile": [
@@ -136,7 +142,7 @@
       "id": "1",
       "first": "Станислав",
       "lastname": "Иванов",
-      "age": 30,
+      "age": 35,
       "currency": "EUR",
       "country": "Russia",
       "city": "Moscow",

@@ -1,37 +1,15 @@
-import { ArticleDetails, ArticleList } from 'entities/Article';
-import { CommentList } from 'entities/Coment';
-import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
+import { ArticleDetails } from 'entities/Article';
+import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
 import { useTranslation } from 'react-i18next';
-import { useNavigate, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLouder, ReducersList } from 'shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
-import { Text, TextSize } from 'shared/ui/Text/Text';
-import cls from './ArticleDetailsPage.module.scss';
-import { useSelector } from 'react-redux';
-import { getArticleCommentsIsLoading } from '../../model/selectors/comments/comments';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { AddCommentForm } from 'features/AddCommentForm';
-import { useCallback } from 'react';
-import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
-import { Button } from 'shared/ui/Button';
-import { ButtonTheme } from 'shared/ui/Button/ui/Button';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Page } from 'widgets/Page/Page';
-import {
-  articleDetailsRecommendationsReducer,
-  getArticleRecommendations
-} from '../../model/slice/articleDetailsRecommendationsSlice';
-import {
-  getArticleRecommendationsIsLoading
-} from '../../model/selectors/recommendations/recommendations';
-import {
-  fetchArticleRecommendations
-} from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
-import { articleDetailsPageReducer } from '../../model/slice';
-import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader';
 import { VStack } from 'shared/ui/Stack';
+import { Page } from 'widgets/Page/Page';
+import { articleDetailsPageReducer } from '../../model/slice';
+import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader';
+import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -46,24 +24,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
-  const dispatch = useAppDispatch();
-
-  const comments = useSelector(getArticleComments.selectAll);
-  const recommendations = useSelector(getArticleRecommendations.selectAll);
-  const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-  const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
-
-  const handleSendComment = useCallback(
-    (text: string) => {
-      dispatch(addCommentForArticle(text));
-    },
-    [dispatch]
-  );
-
-  useInitialEffect(() => {
-    dispatch(fetchCommentsByArticleId(id));
-    dispatch(fetchArticleRecommendations());
-  });
 
   if (!id) {
     return <Page className={classNames(cls.articleDetailsPage, {}, [className])}>{t('Статья не найдена')}</Page>;
@@ -74,26 +34,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
       <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
         <VStack gap="16" max>
           <ArticleDetailsPageHeader />
-
           <ArticleDetails id={id} />
-
-          <Text
-            size={TextSize.L}
-            title={t('Рекомендуем')}
-          />
-          <ArticleList
-            target="_blank"
-            className={cls.recommendationsList}
-            articles={recommendations}
-            isLoading={recommendationsIsLoading}
-          />
-
-          <Text
-            size={TextSize.L}
-            title={t('Комментарии')}
-          />
-          <AddCommentForm onSendComment={handleSendComment} />
-          <CommentList comments={comments} isLoading={commentsIsLoading} />
+          <ArticleRecommendationsList />
+          <ArticleDetailsComments id={id} />
         </VStack>
       </Page>
     </DynamicModuleLouder>
