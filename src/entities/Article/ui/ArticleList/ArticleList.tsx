@@ -13,6 +13,7 @@ interface ArticleListProps {
   isLoading?: boolean;
   view?: ArticleView;
   target?: HTMLAttributeAnchorTarget;
+  isVirtualized?: boolean;
 }
 
 const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.GRID ? 9 : 3)
@@ -27,7 +28,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
     articles,
     isLoading,
     view = ArticleView.GRID,
-    target
+    target,
+    isVirtualized
   } = props;
 
   const { t } = useTranslation();
@@ -50,11 +52,13 @@ export const ArticleList = memo((props: ArticleListProps) => {
     );
   }
 
+  // добавить виртуальный список
   return (
     <div className={classNames(cls.articleList, {}, [className, cls[view]])}>
-      {articles.length
-        ? articles.map(renderArticle)
-        : null}
+
+      {isVirtualized
+        ? (<span />)
+        : articles.map(renderArticle)}
 
       {isLoading && getSkeletons(view)}
     </div>
