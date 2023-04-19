@@ -16,10 +16,6 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
 
-  if (!id) {
-    return <Text text={t('Профиль не найден')} />;
-  }
-
   return (
     <Page className={classNames(cls.profilePage, {}, [className])}>
       <EditableProfileCard id={id} />
