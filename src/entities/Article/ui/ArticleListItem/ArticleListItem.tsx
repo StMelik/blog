@@ -1,3 +1,4 @@
+import { ArticleBlockType, ArticleView } from '../../model/consts/articleConsts';
 import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
@@ -12,7 +13,7 @@ import { Card } from 'shared/ui/Card/Card';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Text } from 'shared/ui/Text/Text';
 import {
-  Article, ArticleBlockType, ArticleTextBlock, ArticleView
+  Article, ArticleTextBlock
 } from '../../model/types/Article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';

@@ -1,12 +1,7 @@
 /* eslint-disable no-unused-vars */
 
 import { User } from 'entities/User';
-
-export enum ArticleBlockType {
-  CODE = 'CODE',
-  IMAGE = 'IMAGE',
-  TEXT = 'TEXT'
-}
+import { ArticleBlockType, ArticleType } from '../consts/articleConsts';
 
 export interface ArticleBlockBase {
   id: string;
@@ -32,18 +27,6 @@ export interface ArticleCodeBlock extends ArticleBlockBase {
 
 export type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock;
 
-export enum ArticleType {
-  ALL = 'ALL',
-  IT = 'IT',
-  SCIENCE = 'SCIENCE',
-  ECONOMICS = 'ECONOMICS'
-}
-
-export enum ArticleView {
-  LIST = 'LIST',
-  GRID = 'GRID'
-}
-
 export interface Article {
   id: string;
   title: string;
@@ -54,10 +37,4 @@ export interface Article {
   createdAt: string;
   type: ArticleType[];
   blocks: ArticleBlock[];
-}
-
-export enum ArticleSortField {
-  VIEW = 'views',
-  TITLE = 'title',
-  CREATED = 'createdAt'
 }

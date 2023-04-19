@@ -1,8 +1,9 @@
 import { profileActions, profileReducer } from './profileSlice';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { ProfileSchema, ValidateProfileError } from '../types/EditableProfileCardSchema';
+import { ProfileSchema } from '../types/EditableProfileCardSchema';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
+import { ValidateProfileError } from '../consts/consts';
 
 const data = {
   age: 25,

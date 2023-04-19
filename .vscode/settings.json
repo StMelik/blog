@@ -9,7 +9,9 @@
     "**/node_modules": true
   },
   "cSpell.words": [
-    "скролла"
+    "скролла",
+    "consts",
+    "lastname"
   ],
   "jest.rootPath": "src", // ?
 }

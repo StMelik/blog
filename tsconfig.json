@@ -10,7 +10,8 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "baseUrl": "src",
-    "strict": true
+    "strict": true,
+    "isolatedModules": true
   },
   "ts-node": {
     "compilerOptions": {
