@@ -7,12 +7,6 @@ import { BuildOptions } from './types/config';
 export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
   const { isDev } = options;
 
-  const tsLoader = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/
-  };
-
   const cssLoader = buildCssLoader(isDev);
 
   const svgLoader = buildSvgLoader();
@@ -26,13 +20,14 @@ export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
     ]
   };
 
-  const babelLoader = buildBabelLoader(options);
+  const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+  const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
   return [
     svgLoader,
     fileLoader,
-    babelLoader,
-    tsLoader,
+    codeBabelLoader,
+    tsxCodeBabelLoader,
     cssLoader
   ];
 };
