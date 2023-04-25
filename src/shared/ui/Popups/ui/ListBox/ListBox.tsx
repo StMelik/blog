@@ -2,9 +2,11 @@ import { Fragment, ReactNode, useState } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import cls from './ListBox.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from '../Button';
-import { HStack } from '../Stack';
+import { Button } from '../../../Button';
+import { HStack } from '../../../Stack';
 import { DropdownDirection } from 'shared/types/ui';
+import { mapDirectionClass } from '../../styles/consts';
+import popupCls from '../../styles/popup.module.scss';
 
 export interface ListBoxItem {
   value: string;
@@ -23,13 +25,6 @@ interface ListBoxProps {
   label?: string | null;
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> = {
-  'top left': cls.optionTopLeft,
-  'top right': cls.optionTopRight,
-  'bottom right': cls.optionBottomRight,
-  'bottom left': cls.optionBottomLeft
-};
-
 export const ListBox = (props: ListBoxProps) => {
   const {
     className,
@@ -47,20 +42,20 @@ export const ListBox = (props: ListBoxProps) => {
   return (
     <HStack gap="4">
       {label && (
-        <span className={classNames('', { [cls.disabled]: readonly })}>
+        <span className={classNames('', { [popupCls.disabled]: readonly })}>
           {`${label}>`}
         </span>
       )}
 
       <HListBox
         as="div"
-        className={classNames(cls.listBox, {}, [className])}
+        className={classNames(cls.listBox, {}, [className, popupCls.popup])}
         value={value}
         onChange={onChange}
         disabled={readonly}
       >
         <HListBox.Button // BUTTON обертка!!!
-          className={cls.trigger}
+          className={popupCls.trigger}
         >
           <Button disabled={readonly}>
             {value || defaultValue}
@@ -77,8 +72,8 @@ export const ListBox = (props: ListBoxProps) => {
               {({ active, selected }) => (
                 <li
                   className={classNames(cls.item, {
-                    [cls.active]: active,
-                    [cls.disabled]: item.disabled
+                    [popupCls.active]: active,
+                    [popupCls.disabled]: item.disabled
                   })}
                 >
                   {selected && '!!!'}
