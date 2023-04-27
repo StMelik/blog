@@ -2,6 +2,7 @@ import {
   FC, MouseEvent, ReactNode, useCallback, useEffect, useRef, useState
 } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
@@ -75,10 +76,10 @@ export const Modal: FC<ModalProps> = ({
   return (
     <Portal>
       <div className={classNames(cls.modal, mods, [className])}>
-        <div className={cls.overlay} onClick={handleClose}>
-          <div className={cls.content} onClick={handleContentClick}>
-            {children}
-          </div>
+        <Overlay onClick={handleClose} />
+
+        <div className={cls.content} onClick={handleContentClick}>
+          {children}
         </div>
       </div>
     </Portal>

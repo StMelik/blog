@@ -14,6 +14,8 @@ import { NotificationButton } from 'features/NotificationButton';
 import { HStack } from 'shared/ui/Stack';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import cls from './NavBar.module.scss';
+import { Drawer } from 'shared/ui/Drawer/Drawer';
+import { NotificationList } from 'entities/Notification';
 
 interface NavBarProps {
   className?: string;
