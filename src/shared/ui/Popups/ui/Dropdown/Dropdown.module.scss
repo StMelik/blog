@@ -1,7 +1,7 @@
 .menu {
   position: absolute;
   background: var(--card-bg);
-  z-index: var(--listbox-z-index);
+  z-index: var(--modal-z-index);
   border-radius: 8px;
   border: 1px solid var(--primary-color);
   display: flex;

@@ -1,9 +1,9 @@
-import { useTheme } from 'app/providers/ThemeProvider';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui/Button';
-import { ButtonTheme } from 'shared/ui/Button/ui/Button';
-import SwitcherIcon from 'shared/assets/icons/theme-switcher.svg';
-import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button } from '@/shared/ui/Button';
+import { ButtonTheme } from '@/shared/ui/Button/ui/Button';
+import SwitcherIcon from '@/shared/assets/icons/theme-switcher.svg';
+import { Theme } from '@/app/providers/ThemeProvider/lib/ThemeContext';
 import { FC, memo } from 'react';
 
 interface ThemeSwitcherProps {

@@ -11,7 +11,10 @@
     "esModuleInterop": true,
     "baseUrl": "src",
     "strict": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
   "ts-node": {
     "compilerOptions": {

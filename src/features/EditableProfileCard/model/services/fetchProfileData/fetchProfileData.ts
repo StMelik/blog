@@ -1,10 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig, ThunkExtraArg } from 'app/providers/StoreProvider';
+import { ThunkConfig, ThunkExtraArg } from '@/app/providers/StoreProvider';
 import axios from 'axios';
-import { Profile } from 'entities/Profile';
+import { Profile } from '@/entities/Profile';
 
-import { User, userActions } from 'entities/User';
-import { USER_LOCALSTORAGE_KEY } from 'shared/constants/localStorage';
+import { User, userActions } from '@/entities/User';
+import { USER_LOCALSTORAGE_KEY } from '@/shared/constants/localStorage';
 
 interface FetchProfileDataProps {
   username: string;

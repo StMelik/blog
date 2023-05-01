@@ -1,7 +1,7 @@
 import { memo, Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router';
-import { AppRoutesProps, routeConfig } from 'shared/config/routeConfig/routeConfig';
-import { LoaderPage } from 'widgets/LoaderPage';
+import { AppRoutesProps, routeConfig } from '@/shared/config/routeConfig/routeConfig';
+import { LoaderPage } from '@/widgets/LoaderPage';
 import { RequireAuth } from './RequireAuth';
 
 export const AppRouter = memo(() => {

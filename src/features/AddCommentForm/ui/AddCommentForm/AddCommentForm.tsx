@@ -2,15 +2,15 @@ import { getAddCommentFormError, getAddCommentFormText } from '../../model/selec
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui/Button';
-import { ButtonTheme } from 'shared/ui/Button/ui/Button';
-import { Input } from 'shared/ui/Input/Input';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button } from '@/shared/ui/Button';
+import { ButtonTheme } from '@/shared/ui/Button/ui/Button';
+import { Input } from '@/shared/ui/Input/Input';
 import cls from './AddCommentForm.module.scss';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
-import { DynamicModuleLouder, ReducersList } from 'shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
-import { HStack } from 'shared/ui/Stack';
+import { DynamicModuleLouder, ReducersList } from '@/shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
+import { HStack } from '@/shared/ui/Stack';
 
 export interface AddCommentFormProps {
   className?: string;
