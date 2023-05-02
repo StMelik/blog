@@ -17,7 +17,7 @@ export interface AddCommentFormProps {
   onSendComment: (text: string) => void;
 }
 
-const redusers: ReducersList = {
+const reducers: ReducersList = {
   addCommentForm: addCommentFormReducer
 };
 
@@ -46,7 +46,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
   );
 
   return (
-    <DynamicModuleLouder reducers={redusers} removeAfterUnmount>
+    <DynamicModuleLouder reducers={reducers} removeAfterUnmount>
       <HStack justify="between" max className={classNames(cls.addCommentForm, {}, [className])}>
         <Input
           placeholder={t('Введите текст комментария')}
