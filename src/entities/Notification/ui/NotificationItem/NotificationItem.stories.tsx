@@ -12,4 +12,11 @@ export default {
 const Template: ComponentStory<typeof NotificationItem> = (args) => <NotificationItem {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  item: {
+    id: '1',
+    title: 'Уведомление',
+    description: 'Новое уведомление',
+    userId: '1'
+  }
+};
