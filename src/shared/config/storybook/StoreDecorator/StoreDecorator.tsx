@@ -1,3 +1,5 @@
+/* eslint-disable fsd-import-helper/public-api-imports */
+// TODO: el-lint
 import { Story } from '@storybook/react/types-6-0';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';

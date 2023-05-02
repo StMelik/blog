@@ -7,7 +7,7 @@ import {
 } from '@/shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Page } from '@/widgets/Page/Page';
+import { Page } from '@/widgets/Page';
 import { fetchMoreArticlesList } from '../../model/services/fetchMoreArticlesList/fetchMoreArticlesList';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {

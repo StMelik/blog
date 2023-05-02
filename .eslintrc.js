@@ -51,6 +51,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
     'fsd-import-helper/path-checker': [2, { alias: '@' }],
+    'fsd-import-helper/public-api-imports': [2, { alias: '@' }],
     'no-unused-vars': 'warn',
     'react/jsx-props-no-spreading': 'warn',
     'import/no-extraneous-dependencies': 'warn',
