@@ -55,6 +55,10 @@ module.exports = {
       alias: '@',
       testFilesPatterns: ['**/*.test.ts', '**/*.stories.tsx', '**/StoreDecorator.tsx']
     }],
+    'fsd-import-helper/layer-imports': [2, {
+      alias: '@',
+      ignoreImportPatterns: ['**/StoreProvider', '**/testing']
+    }],
     'no-unused-vars': 'warn',
     'react/jsx-props-no-spreading': 'warn',
     'import/no-extraneous-dependencies': 'warn',
