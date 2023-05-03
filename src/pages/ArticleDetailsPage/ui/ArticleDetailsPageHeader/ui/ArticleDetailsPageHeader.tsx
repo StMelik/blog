@@ -4,11 +4,11 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { generatePath, useNavigate } from 'react-router';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button';
 import { ButtonTheme } from '@/shared/ui/Button/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
+import { RoutePath } from '@/shared/constants/router';
 
 interface ArticleDetailsPageHeaderProps {
   className?: string;
