@@ -29,7 +29,8 @@ module.exports = {
     '@typescript-eslint',
     'i18next',
     'react-hooks',
-    'fsd-import-helper'
+    'fsd-import-helper',
+    'unused-imports'
   ],
   rules: {
     'react/jsx-filename-extension': [2, {
@@ -59,6 +60,7 @@ module.exports = {
       alias: '@',
       ignoreImportPatterns: ['**/StoreProvider', '**/testing']
     }],
+    'unused-imports/no-unused-imports': 'error',
     'no-unused-vars': 'warn',
     'react/jsx-props-no-spreading': 'warn',
     'import/no-extraneous-dependencies': 'warn',

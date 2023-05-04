@@ -6,7 +6,7 @@ import {
   getArticlesPageType,
   getArticlesPageView
 } from '../../../model/selectors/articlesPageSelectors';
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -21,7 +21,7 @@ import { Input } from '@/shared/ui/Input';
 import { SortOrder } from '@/shared/types';
 import { fetchArticlesList } from '../../../model/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { TabItem, Tabs } from '@/shared/ui/Tabs';
+import { TabItem } from '@/shared/ui/Tabs';
 
 interface ArticlesPageFilterProps {
   className?: string;
