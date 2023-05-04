@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button';
-import { ButtonTheme } from '@/shared/ui/Button/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+
 import SwitcherIcon from '@/shared/assets/icons/theme-switcher.svg';
 import { FC, memo } from 'react';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';

@@ -6,12 +6,12 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
-import { Button, ButtonTheme } from '@/shared/ui/Button/ui/Button';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { NotificationButton } from '@/features/NotificationButton';
 import { HStack } from '@/shared/ui/Stack';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Text, TextTheme } from '@/shared/ui/Text';
 import cls from './NavBar.module.scss';
 import { RoutePath } from '@/shared/constants/router';
 

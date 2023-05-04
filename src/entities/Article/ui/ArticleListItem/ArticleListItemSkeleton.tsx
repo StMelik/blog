@@ -2,8 +2,8 @@ import { ArticleView } from '../../model/consts/articleConsts';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/Card/Card';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Card } from '@/shared/ui/Card';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {
