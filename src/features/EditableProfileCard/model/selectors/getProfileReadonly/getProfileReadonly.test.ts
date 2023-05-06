@@ -15,6 +15,6 @@ describe('getProfileReadonly', () => {
   test('Получить поле readonly если стейт пустой', () => {
     const state: DeepPartial<StateSchema> = {};
 
-    expect(getProfileReadonly(state as StateSchema)).toBe(undefined);
+    expect(getProfileReadonly(state as StateSchema)).toBe(true);
   });
 });

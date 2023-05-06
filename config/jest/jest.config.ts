@@ -67,7 +67,8 @@ export default {
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
-    '\\.svg$': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+    '\\.svg$': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    '^@/(.*)$': '<rootDir>/src/$1'
   },
 
   reporters: [
