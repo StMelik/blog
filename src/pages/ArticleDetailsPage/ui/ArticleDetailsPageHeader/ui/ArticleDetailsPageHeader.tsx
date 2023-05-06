@@ -3,12 +3,12 @@ import { getCanEditArticle } from '../../../model/selectors/article/article';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { generatePath, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 
 import { HStack } from '@/shared/ui/Stack';
-import { RoutePath } from '@/shared/constants/router';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/constants/router';
 
 interface ArticleDetailsPageHeaderProps {
   className?: string;
@@ -23,13 +23,11 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
   const canEdit = useSelector(getCanEditArticle);
 
   const handleBackToList = useCallback(() => {
-    navigate(RoutePath.articles);
+    navigate(getRouteArticles());
   }, [navigate]);
 
   const handleEditArticle = useCallback(() => {
-    navigate(generatePath(RoutePath.article_edit, {
-      id: article?.id
-    }));
+    navigate(getRouteArticleEdit(article?.id!));
   }, [article?.id, navigate]);
 
   return (

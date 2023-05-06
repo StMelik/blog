@@ -13,7 +13,7 @@ import { NotificationButton } from '@/features/NotificationButton';
 import { HStack } from '@/shared/ui/Stack';
 import { Text, TextTheme } from '@/shared/ui/Text';
 import cls from './NavBar.module.scss';
-import { RoutePath } from '@/shared/constants/router';
+import { getRouteArticleCreate } from '@/shared/constants/router';
 
 interface NavBarProps {
   className?: string;
@@ -42,7 +42,7 @@ export const NavBar: FC<NavBarProps> = memo(({ className }) => {
         />
 
         <AppLink
-          to={RoutePath.article_create}
+          to={getRouteArticleCreate()}
           theme={AppLinkTheme.INVERTED}
           className={cls.createBtn}
         >
