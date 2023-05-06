@@ -9,6 +9,3 @@ export type { ArticleDetailsSchema } from './model/types/ArticleDetailsSchema';
 export { getArticleDetailsData } from './model/selectors/getArticleDetails';
 
 export { ArticleList } from './ui/ArticleList/ArticleList';
-export { ArticleSortSelector } from './ui/ArticleSortSelector';
-
-export { ArticleTypeTabs } from './ui/ArticleTypeTabs';

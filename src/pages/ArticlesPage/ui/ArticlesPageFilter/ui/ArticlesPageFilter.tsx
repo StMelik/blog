@@ -13,7 +13,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticlesPageFilter.module.scss';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
-  ArticleSortField, ArticleSortSelector, ArticleType, ArticleTypeTabs, ArticleView
+  ArticleSortField, ArticleType, ArticleView
 } from '@/entities/Article';
 import { articlesPageActions } from '../../../model/slice/articlesPageSlice';
 import { Card } from '@/shared/ui/Card';
@@ -22,6 +22,8 @@ import { SortOrder } from '@/shared/types';
 import { fetchArticlesList } from '../../../model/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { TabItem } from '@/shared/ui/Tabs';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 
 interface ArticlesPageFilterProps {
   className?: string;
