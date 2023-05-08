@@ -34,6 +34,10 @@
     "create:slice": "node ./scripts/createSlice/index.js",
     "postinstall": "node ./scripts/clear-cache.js"
   },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint",
+    "**/*.scss": "stylelint"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -98,6 +102,7 @@
     "jest-html-reporters": "^3.1.4",
     "json-server": "^0.17.2",
     "jsonwebtoken": "^9.0.0",
+    "lint-staged": "^13.2.2",
     "loki": "^0.31.1",
     "mini-css-extract-plugin": "^2.7.2",
     "react-refresh": "^0.14.0",
