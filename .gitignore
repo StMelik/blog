@@ -2,4 +2,4 @@
 /storybook-static
 node_modules
 .idea
-/reports
+/reports/unit
