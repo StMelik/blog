@@ -186,6 +186,17 @@
       "city": "Karaganda",
       "username": "bara228",
       "avatar": "https://enscsrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQADxKBqWGp4ovszHPo1bgz0uD51olEKaxw&usqp=CAU"
+    },
+    {
+      "id": "4",
+      "first": "Тестовый",
+      "lastname": "Пользователь",
+      "age": 333,
+      "currency": "EUR",
+      "country": "Armenia",
+      "city": "Karaganda",
+      "username": "testUser",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQADxKBqWGp4ovszHPo1bgz0uD51olEKaxw&usqp=CAU"
     }
   ],
   "users": [
@@ -213,6 +224,15 @@
       "password": "0",
       "roles": [
         "MANAGER"
+      ],
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQADxKBqWGp4ovszHPo1bgz0uD51olEKaxw&usqp=CAU"
+    },
+    {
+      "id": "4",
+      "username": "testUser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
       ],
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQADxKBqWGp4ovszHPo1bgz0uD51olEKaxw&usqp=CAU"
     }

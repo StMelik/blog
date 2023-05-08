@@ -46,6 +46,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   return (
     <DynamicModuleLouder reducers={reducers}>
       <Page
+        data-testid="ArticlesPage"
         onScrollEnd={handleLoadNextPage}
         className={classNames(cls.articlesPage, {}, [className])}
         isSaveScroll
