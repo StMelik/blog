@@ -13,7 +13,10 @@ function MainPage() {
   };
 
   return (
-    <Page className="main">
+    <Page
+      data-testid="MainPage"
+      className="main"
+    >
       {t('Главная')}
       <Counter />
     </Page>

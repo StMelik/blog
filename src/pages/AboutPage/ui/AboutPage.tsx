@@ -5,7 +5,10 @@ function AboutPage() {
   const { t } = useTranslation();
 
   return (
-    <Page className="about">
+    <Page
+      className="about"
+      data-testid="AboutPage"
+    >
       {t('О сайте')}
     </Page>
   );
