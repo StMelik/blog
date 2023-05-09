@@ -1,0 +1,20 @@
+{
+  "title": "Тестовая статья - Заголовок",
+  "subtitle": "Тестовая статья - Описание",
+  "img": "https://cdnn21.img.ria.ru/images/150113/97/1501139774_0:2:3289:1852_640x0_80_0_0_7deaead39d62e261cff49af5e4bf6424.jpg.webp",
+  "views": 1,
+  "createdAt": "28.03.2022",
+  "userId": "4",
+  "type": ["ECONOMICS"],
+  "blocks": [],
+  "id": "7",
+  "user": {
+    "id": "1",
+    "username": "admin",
+    "password": "123",
+    "roles": [
+      "ADMIN"
+    ],
+    "avatar": "https://yakutsk.ru/wp-content/uploads/2022/07/12/bystrov_haker.jpeg"
+  }
+}

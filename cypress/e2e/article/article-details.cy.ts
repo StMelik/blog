@@ -38,4 +38,13 @@ describe('Пользователь заходит на страницу стат
     cy.setRate(5, 'Отзыв');
     cy.get('[data-selected=true]').should('have.length', 5);
   });
+
+  it('И оценивает статью (пример с стабом на фикстурах)', () => {
+    cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
+
+    cy.getByTestId('ArticleDetails.Info').should('exist');
+    cy.getByTestId('RatingCard').scrollIntoView();
+    cy.setRate(5, 'Отзыв');
+    cy.get('[data-selected=true]').should('have.length', 5);
+  });
 });
