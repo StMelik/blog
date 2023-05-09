@@ -55,7 +55,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
   // добавить виртуальный список
   return (
-    <div className={classNames(cls.articleList, {}, [className, cls[view]])}>
+    <div
+      className={classNames(cls.articleList, {}, [className, cls[view]])}
+      data-testid="ArticleList"
+    >
 
       {isVirtualized
         ? (<span />)
