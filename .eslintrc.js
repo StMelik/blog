@@ -66,6 +66,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'warn',
     'import/no-extraneous-dependencies': 'warn',
     'react/no-array-index-key': 'warn',
+    'react/no-unstable-nested-components': 'warn',
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
     'react/react-in-jsx-scope': 'off',
