@@ -20,6 +20,7 @@
     "lint:scss": "stylelint \"**/*.scss\"",
     "lint:scss:fix": "stylelint \"**/*.scss\" --fix",
     "lint:fix": "npm run lint:ts:fix && npm run lint:scss:fix",
+    "prettier": "npx prettier --write **/*.{ts,tsx,json}",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:e2e": "cypress open",
     "test:ui": "npx loki test",
@@ -36,7 +37,7 @@
     "postinstall": "node ./scripts/clear-cache.js"
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": "eslint",
+    "**/*.{ts,tsx}": ["prettier --list-different", "eslint"],
     "**/*.scss": "stylelint"
   },
   "keywords": [],
@@ -82,6 +83,7 @@
     "cypress": "^12.11.0",
     "eslint": "^8.2.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard-with-typescript": "^34.0.0",
     "eslint-plugin-fsd-import-helper": "^0.0.11",
     "eslint-plugin-i18next": "^6.0.0-2",
@@ -107,6 +109,7 @@
     "lint-staged": "^13.2.2",
     "loki": "^0.31.1",
     "mini-css-extract-plugin": "^2.7.2",
+    "prettier": "2.8.8",
     "react-refresh": "^0.14.0",
     "reg-cli": "^0.17.7",
     "regenerator-runtime": "^0.13.11",

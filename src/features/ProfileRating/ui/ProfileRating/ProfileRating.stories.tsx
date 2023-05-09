@@ -14,7 +14,9 @@ export default {
   decorators: [withMock]
 } as ComponentMeta<typeof ProfileRating>;
 
-const Template: ComponentStory<typeof ProfileRating> = (args) => <ProfileRating {...args} />;
+const Template: ComponentStory<typeof ProfileRating> = (args) => (
+  <ProfileRating {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {
@@ -36,9 +38,7 @@ Normal.parameters = {
       url: `${__API__}/profile-ratings?userId=2&profileId=1`,
       method: 'GET',
       status: 200,
-      response: [
-        { rate: 4 }
-      ]
+      response: [{ rate: 4 }]
     }
   ]
 };

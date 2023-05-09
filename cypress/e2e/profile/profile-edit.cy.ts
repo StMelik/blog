@@ -14,7 +14,10 @@ describe('Пользователь заходит на страницу проф
   });
 
   it('И профиль успешно загрузился', () => {
-    cy.getByTestId('ProfileCard.FirstNameInput').should('have.value', 'Тестовый');
+    cy.getByTestId('ProfileCard.FirstNameInput').should(
+      'have.value',
+      'Тестовый'
+    );
   });
 
   it('И редактирует его', () => {
@@ -23,7 +26,13 @@ describe('Пользователь заходит на страницу проф
 
     cy.updateProfile(newFirstname, newLastname);
 
-    cy.getByTestId('ProfileCard.FirstNameInput').should('have.value', newFirstname);
-    cy.getByTestId('ProfileCard.LastNameInput').should('have.value', newLastname);
+    cy.getByTestId('ProfileCard.FirstNameInput').should(
+      'have.value',
+      newFirstname
+    );
+    cy.getByTestId('ProfileCard.LastNameInput').should(
+      'have.value',
+      newLastname
+    );
   });
 });

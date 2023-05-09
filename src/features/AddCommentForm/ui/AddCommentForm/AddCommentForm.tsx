@@ -1,4 +1,7 @@
-import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
+import {
+  getAddCommentFormError,
+  getAddCommentFormText
+} from '../../model/selectors/addCommentFormSelectors';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -8,8 +11,14 @@ import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import cls from './AddCommentForm.module.scss';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
-import { DynamicModuleLouder, ReducersList } from '@/shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
+import {
+  addCommentFormActions,
+  addCommentFormReducer
+} from '../../model/slice/addCommentFormSlice';
+import {
+  DynamicModuleLouder,
+  ReducersList
+} from '@/shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
 import { HStack } from '@/shared/ui/Stack';
 
 export interface AddCommentFormProps {
@@ -37,31 +46,31 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     [dispatch]
   );
 
-  const handleSendComment = useCallback(
-    () => {
-      onSendComment(text || '');
-      changeCommentText('');
-    },
-    [onSendComment, text, changeCommentText]
-  );
+  const handleSendComment = useCallback(() => {
+    onSendComment(text || '');
+    changeCommentText('');
+  }, [onSendComment, text, changeCommentText]);
 
   return (
-    <DynamicModuleLouder reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLouder
+      reducers={reducers}
+      removeAfterUnmount
+    >
       <HStack
-        data-testid="AddCommentForm"
-        justify="between"
+        data-testid='AddCommentForm'
+        justify='between'
         max
         className={classNames(cls.addCommentForm, {}, [className])}
       >
         <Input
-          data-testid="AddCommentForm.Input"
+          data-testid='AddCommentForm.Input'
           placeholder={t('Введите текст комментария')}
           value={text}
           onChange={changeCommentText}
           className={cls.input}
         />
         <Button
-          data-testid="AddCommentForm.Button"
+          data-testid='AddCommentForm.Button'
           theme={ButtonTheme.OUTLINE}
           onClick={handleSendComment}
         >

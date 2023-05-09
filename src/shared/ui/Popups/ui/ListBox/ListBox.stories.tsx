@@ -26,11 +26,17 @@ export default {
     ]
   },
   decorators: [
-    (Story) => <div style={{ padding: 150 }}><Story /></div>
+    (Story) => (
+      <div style={{ padding: 150 }}>
+        <Story />
+      </div>
+    )
   ]
 } as ComponentMeta<typeof ListBox>;
 
-const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
+const Template: ComponentStory<typeof ListBox> = (args) => (
+  <ListBox {...args} />
+);
 
 export const BottomLeft = Template.bind({});
 BottomLeft.args = {

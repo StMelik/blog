@@ -20,9 +20,7 @@ const options = [
 ];
 
 export const CountrySelect = (props: CountrySelectProps) => {
-  const {
-    className, value, onChange, readonly
-  } = props;
+  const { className, value, onChange, readonly } = props;
 
   const { t } = useTranslation();
 
@@ -42,7 +40,7 @@ export const CountrySelect = (props: CountrySelectProps) => {
       label={t('Укажите страну')}
       items={options}
       readonly={readonly}
-      direction="top right"
+      direction='top right'
     />
   );
 };

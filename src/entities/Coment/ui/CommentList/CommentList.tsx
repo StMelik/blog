@@ -8,8 +8,8 @@ import { VStack } from '@/shared/ui/Stack';
 
 interface CommentListProps {
   className?: string;
-  comments?: Comment[]
-  isLoading?: boolean
+  comments?: Comment[];
+  isLoading?: boolean;
 }
 
 export const CommentList = memo((props: CommentListProps) => {
@@ -19,7 +19,11 @@ export const CommentList = memo((props: CommentListProps) => {
 
   if (isLoading) {
     return (
-      <VStack gap="16" max className={classNames('', {}, [className])}>
+      <VStack
+        gap='16'
+        max
+        className={classNames('', {}, [className])}
+      >
         <CommentCard isLoading />
         <CommentCard isLoading />
         <CommentCard isLoading />
@@ -28,16 +32,22 @@ export const CommentList = memo((props: CommentListProps) => {
   }
 
   return (
-    <VStack gap="16" max className={classNames('', {}, [className])}>
-      {comments?.length
-        ? comments.map((comment) => (
+    <VStack
+      gap='16'
+      max
+      className={classNames('', {}, [className])}
+    >
+      {comments?.length ? (
+        comments.map((comment) => (
           <CommentCard
             key={comment.id}
             comment={comment}
             isLoading={isLoading}
           />
         ))
-        : <Text text={t('Комментарии отсутствуют')} />}
+      ) : (
+        <Text text={t('Комментарии отсутствуют')} />
+      )}
     </VStack>
   );
 });

@@ -13,7 +13,7 @@ export const NotFoundPage: FC<NotFoundPageProps> = ({ className }) => {
 
   return (
     <Page
-      data-testid="NotFoundPage"
+      data-testid='NotFoundPage'
       className={classNames(cls.notFoundPage, {}, [className])}
     >
       {t('Страница не найдена')}

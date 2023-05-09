@@ -5,7 +5,10 @@ import { ValidateProfileError } from '../../model/consts/consts';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { DynamicModuleLouder, ReducersList } from '@/shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
+import {
+  DynamicModuleLouder,
+  ReducersList
+} from '@/shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from '@/shared/ui/Stack';
@@ -115,18 +118,25 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   );
 
   return (
-    <DynamicModuleLouder reducers={reducers} removeAfterUnmount>
-      <VStack max gap="16">
+    <DynamicModuleLouder
+      reducers={reducers}
+      removeAfterUnmount
+    >
+      <VStack
+        max
+        gap='16'
+      >
         <EditableProfileCardHeader />
 
-        {validateErrors?.length && validateErrors.map((err) => (
-          <Text
-            key={err}
-            theme={TextTheme.ERROR}
-            text={validateErrorTranslates[err]}
-            data-testid="EditableProfileCard.Error"
-          />
-        ))}
+        {validateErrors?.length &&
+          validateErrors.map((err) => (
+            <Text
+              key={err}
+              theme={TextTheme.ERROR}
+              text={validateErrorTranslates[err]}
+              data-testid='EditableProfileCard.Error'
+            />
+          ))}
 
         <ProfileCard
           data={form}

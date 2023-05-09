@@ -7,9 +7,7 @@
     "views": 1790,
     "createdAt": "12.09.2022",
     "userId": "1",
-    "type": [
-      "ECONOMICS"
-    ],
+    "type": ["ECONOMICS"],
     "blocks": [
       {
         "id": "1",
@@ -31,10 +29,7 @@
     "views": 522,
     "createdAt": "26.02.2022",
     "userId": "2",
-    "type": [
-      "IT",
-      "SCIENCE"
-    ],
+    "type": ["IT", "SCIENCE"],
     "blocks": [
       {
         "id": "1",
@@ -56,10 +51,7 @@
     "views": 1022,
     "createdAt": "26.02.2022",
     "userId": "1",
-    "type": [
-      "IT",
-      "ECONOMICS"
-    ],
+    "type": ["IT", "ECONOMICS"],
     "blocks": [
       {
         "id": "1",
@@ -81,9 +73,7 @@
     "views": 1022,
     "createdAt": "26.02.2020",
     "userId": "1",
-    "type": [
-      "IT"
-    ],
+    "type": ["IT"],
     "blocks": [
       {
         "id": "1",
@@ -153,9 +143,7 @@
     "views": 5055,
     "createdAt": "15.10.2022",
     "userId": "1",
-    "type": [
-      "IT"
-    ],
+    "type": ["IT"],
     "blocks": [
       {
         "id": "1",

@@ -1,6 +1,4 @@
-import {
-  useCallback, useEffect, useRef, useState
-} from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 interface UseModalProps {
   onClose?: () => void;
@@ -9,11 +7,7 @@ interface UseModalProps {
 }
 
 export const useModal = (props: UseModalProps) => {
-  const {
-    onClose,
-    animationDelay = 300,
-    isOpen
-  } = props;
+  const { onClose, animationDelay = 300, isOpen } = props;
 
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);

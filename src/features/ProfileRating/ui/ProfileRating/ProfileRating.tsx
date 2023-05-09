@@ -4,7 +4,10 @@ import { RatingCard } from '@/entities/Rating';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/Skeleton';
-import { useGetProfileRating, useRateProfile } from '../../model/api/profileRatingApi';
+import {
+  useGetProfileRating,
+  useRateProfile
+} from '../../model/api/profileRatingApi';
 
 export interface ProfileRatingProps {
   className?: string;
@@ -24,32 +27,46 @@ const ProfileRating = memo((props: ProfileRatingProps) => {
 
   const [rateProfileMutation] = useRateProfile();
 
-  const handleRateArticle = useCallback((starsCount: number) => {
-    try {
-      rateProfileMutation({
-        profileId,
-        rate: starsCount,
-        userId: userData?.id ?? ''
-      });
-    } catch (e) {
-      console.log(e);
-    }
-  }, [profileId, rateProfileMutation, userData?.id]);
+  const handleRateArticle = useCallback(
+    (starsCount: number) => {
+      try {
+        rateProfileMutation({
+          profileId,
+          rate: starsCount,
+          userId: userData?.id ?? ''
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    [profileId, rateProfileMutation, userData?.id]
+  );
 
-  const handleCancel = useCallback((starsCount: number) => {
-    handleRateArticle(starsCount);
-  }, [handleRateArticle]);
+  const handleCancel = useCallback(
+    (starsCount: number) => {
+      handleRateArticle(starsCount);
+    },
+    [handleRateArticle]
+  );
 
-  const handleAccept = useCallback((starsCount: number) => {
-    handleRateArticle(starsCount);
-  }, [handleRateArticle]);
+  const handleAccept = useCallback(
+    (starsCount: number) => {
+      handleRateArticle(starsCount);
+    },
+    [handleRateArticle]
+  );
 
   if (userData?.id === profileId) {
     return null;
   }
 
   if (isLoading) {
-    return <Skeleton width="100%" height={120} />;
+    return (
+      <Skeleton
+        width='100%'
+        height={120}
+      />
+    );
   }
 
   const rating = data?.[0];

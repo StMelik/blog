@@ -7,7 +7,9 @@ describe('counterSlice', () => {
       value: 15
     };
 
-    expect(counterReducer(state, counterActions.decrement())).toEqual({ value: 14 });
+    expect(counterReducer(state, counterActions.decrement())).toEqual({
+      value: 14
+    });
   });
 
   test('increment', () => {
@@ -15,10 +17,14 @@ describe('counterSlice', () => {
       value: 15
     };
 
-    expect(counterReducer(state, counterActions.increment())).toEqual({ value: 16 });
+    expect(counterReducer(state, counterActions.increment())).toEqual({
+      value: 16
+    });
   });
 
   test('Проверка роботоспособности при пустом state', () => {
-    expect(counterReducer(undefined, counterActions.increment())).toEqual({ value: 1 });
+    expect(counterReducer(undefined, counterActions.increment())).toEqual({
+      value: 1
+    });
   });
 });

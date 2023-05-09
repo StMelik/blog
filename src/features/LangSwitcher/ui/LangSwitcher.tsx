@@ -13,19 +13,23 @@ interface LangSwitcherProps {
   short?: boolean;
 }
 
-export const LangSwitcher: FC<LangSwitcherProps> = memo(({ className, short }) => {
-  const { t, i18n } = useTranslation();
+export const LangSwitcher: FC<LangSwitcherProps> = memo(
+  ({ className, short }) => {
+    const { t, i18n } = useTranslation();
 
-  const handleToggleLang = () => {
-    i18n.changeLanguage(i18n.language === AppLang.EN ? AppLang.RU : AppLang.EN);
-  };
+    const handleToggleLang = () => {
+      i18n.changeLanguage(
+        i18n.language === AppLang.EN ? AppLang.RU : AppLang.EN
+      );
+    };
 
-  return (
-    <Button
-      className={classNames('', {}, [className])}
-      onClick={handleToggleLang}
-    >
-      {t(short ? 'Короткий язык' : 'Язык')}
-    </Button>
-  );
-});
+    return (
+      <Button
+        className={classNames('', {}, [className])}
+        onClick={handleToggleLang}
+      >
+        {t(short ? 'Короткий язык' : 'Язык')}
+      </Button>
+    );
+  }
+);

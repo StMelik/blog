@@ -18,9 +18,9 @@ export function App() {
 
   return (
     <div className={classNames('app', {}, [])}>
-      <Suspense fallback="">
+      <Suspense fallback=''>
         <NavBar />
-        <div className="content-page">
+        <div className='content-page'>
           <Sidebar />
           {inited && <AppRouter />}
         </div>

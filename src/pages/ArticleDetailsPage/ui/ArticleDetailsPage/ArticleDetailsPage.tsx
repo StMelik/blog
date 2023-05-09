@@ -3,7 +3,10 @@ import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsLis
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLouder, ReducersList } from '@/shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
+import {
+  DynamicModuleLouder,
+  ReducersList
+} from '@/shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 import { articleDetailsPageReducer } from '../../model/slice';
@@ -31,9 +34,15 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   }
 
   return (
-    <DynamicModuleLouder reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLouder
+      reducers={reducers}
+      removeAfterUnmount
+    >
       <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
-        <VStack gap="16" max>
+        <VStack
+          gap='16'
+          max
+        >
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
           <ArticleRating articleId={id} />

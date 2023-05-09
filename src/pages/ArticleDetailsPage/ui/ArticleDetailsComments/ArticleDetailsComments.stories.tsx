@@ -12,7 +12,9 @@ export default {
   decorators: [StoreDecorator({})]
 } as ComponentMeta<typeof ArticleDetailsComments>;
 
-const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => <ArticleDetailsComments {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => (
+  <ArticleDetailsComments {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};

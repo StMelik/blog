@@ -17,10 +17,13 @@ interface ArticleListProps {
   isVirtualized?: boolean;
 }
 
-const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.GRID ? 9 : 3)
-  .fill(1)
-  .map((item, index) => (
-    <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
+const getSkeletons = (view: ArticleView) =>
+  new Array(view === ArticleView.GRID ? 9 : 3).fill(1).map((item, index) => (
+    <ArticleListItemSkeleton
+      className={cls.card}
+      key={index}
+      view={view}
+    />
   ));
 
 export const ArticleList = memo((props: ArticleListProps) => {
@@ -48,7 +51,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
   if (!isLoading && !articles.length) {
     return (
       <div className={classNames(cls.articleList, {}, [className, cls[view]])}>
-        <Text size={TextSize.L} title={t('Статьи не найдены')} />
+        <Text
+          size={TextSize.L}
+          title={t('Статьи не найдены')}
+        />
       </div>
     );
   }
@@ -57,12 +63,9 @@ export const ArticleList = memo((props: ArticleListProps) => {
   return (
     <div
       className={classNames(cls.articleList, {}, [className, cls[view]])}
-      data-testid="ArticleList"
+      data-testid='ArticleList'
     >
-
-      {isVirtualized
-        ? (<span />)
-        : articles.map(renderArticle)}
+      {isVirtualized ? <span /> : articles.map(renderArticle)}
 
       {isLoading && getSkeletons(view)}
     </div>

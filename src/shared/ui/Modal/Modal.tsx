@@ -1,6 +1,4 @@
-import {
-  FC, ReactNode
-} from 'react';
+import { FC, ReactNode } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 import { Overlay } from '../Overlay/Overlay';
@@ -13,11 +11,15 @@ interface ModalProps {
   children: ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
-  lazy?:boolean
+  lazy?: boolean;
 }
 
 export const Modal: FC<ModalProps> = ({
-  className, children, isOpen, onClose, lazy
+  className,
+  children,
+  isOpen,
+  onClose,
+  lazy
 }) => {
   const { theme } = useTheme();
 
@@ -34,12 +36,12 @@ export const Modal: FC<ModalProps> = ({
 
   return (
     <Portal>
-      <div className={classNames(cls.modal, mods, [className, theme, 'app_modal'])}>
+      <div
+        className={classNames(cls.modal, mods, [className, theme, 'app_modal'])}
+      >
         <Overlay onClick={close} />
 
-        <div className={cls.content}>
-          {children}
-        </div>
+        <div className={cls.content}>{children}</div>
       </div>
     </Portal>
   );

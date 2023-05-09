@@ -1,8 +1,6 @@
 import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUsername';
-import {
-  FC, memo, useCallback, useState
-} from 'react';
+import { FC, memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -51,7 +49,7 @@ export const NavBar: FC<NavBarProps> = memo(({ className }) => {
 
         <HStack
           className={cls.actions}
-          gap="16"
+          gap='16'
         >
           <NotificationButton />
           <AvatarDropdown />
@@ -62,7 +60,10 @@ export const NavBar: FC<NavBarProps> = memo(({ className }) => {
 
   return (
     <header className={classNames(cls.navBar, {}, [className])}>
-      <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={handleShowModal}>
+      <Button
+        theme={ButtonTheme.CLEAR_INVERTED}
+        onClick={handleShowModal}
+      >
         {t('Войти')}
       </Button>
       {isAuthModal && (

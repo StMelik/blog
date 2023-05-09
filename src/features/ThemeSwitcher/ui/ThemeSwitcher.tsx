@@ -24,7 +24,9 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
       onClick={toggleTheme}
       theme={ButtonTheme.CLEAR}
     >
-      <SwitcherIcon fill={theme === Theme.LIGHT ? IconTheme.LIGHT : IconTheme.DARK} />
+      <SwitcherIcon
+        fill={theme === Theme.LIGHT ? IconTheme.LIGHT : IconTheme.DARK}
+      />
     </Button>
   );
 });

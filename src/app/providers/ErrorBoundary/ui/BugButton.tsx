@@ -17,11 +17,5 @@ export const BugButton = () => {
     setError(true);
   };
 
-  return (
-    <Button
-      onClick={handleThrow}
-    >
-      {t('Выбросить ошибку')}
-    </Button>
-  );
+  return <Button onClick={handleThrow}>{t('Выбросить ошибку')}</Button>;
 };

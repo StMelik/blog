@@ -47,7 +47,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   if (isLoading) {
     return (
-      <HStack justify="center" max className={classNames(cls.profileCard, {}, [className, cls.loading])}>
+      <HStack
+        justify='center'
+        max
+        className={classNames(cls.profileCard, {}, [className, cls.loading])}
+      >
         <Loader />
       </HStack>
     );
@@ -55,7 +59,10 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   if (error) {
     return (
-      <HStack justify="center" className={classNames(cls.profileCard, {}, [className, cls.error])}>
+      <HStack
+        justify='center'
+        className={classNames(cls.profileCard, {}, [className, cls.error])}
+      >
         <Text
           theme={TextTheme.ERROR}
           align={TextAlign.CENTER}
@@ -71,10 +78,20 @@ export const ProfileCard = (props: ProfileCardProps) => {
   };
 
   return (
-    <VStack max gap="16" className={classNames(cls.profileCard, mods, [className])}>
+    <VStack
+      max
+      gap='16'
+      className={classNames(cls.profileCard, mods, [className])}
+    >
       {data?.avatar && (
-        <HStack justify="center" max>
-          <Avatar src={data?.avatar} alt="Аватар" />
+        <HStack
+          justify='center'
+          max
+        >
+          <Avatar
+            src={data?.avatar}
+            alt='Аватар'
+          />
         </HStack>
       )}
 
@@ -84,7 +101,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         className={cls.input}
         onChange={handleChangeFirstName}
         readonly={readonly}
-        data-testid="ProfileCard.FirstNameInput"
+        data-testid='ProfileCard.FirstNameInput'
       />
 
       <Input
@@ -93,7 +110,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         className={cls.input}
         onChange={handleChangeLastName}
         readonly={readonly}
-        data-testid="ProfileCard.LastNameInput"
+        data-testid='ProfileCard.LastNameInput'
       />
 
       <Input

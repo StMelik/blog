@@ -14,8 +14,8 @@ function MainPage() {
 
   return (
     <Page
-      data-testid="MainPage"
-      className="main"
+      data-testid='MainPage'
+      className='main'
     >
       {t('Главная')}
       <Counter />

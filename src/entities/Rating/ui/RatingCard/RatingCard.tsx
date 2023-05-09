@@ -39,15 +39,18 @@ export const RatingCard = memo((props: RatingCardProps) => {
   const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState('');
 
-  const handleSelectStars = useCallback((selectedStarsCount: number) => {
-    setStarsCount(selectedStarsCount);
+  const handleSelectStars = useCallback(
+    (selectedStarsCount: number) => {
+      setStarsCount(selectedStarsCount);
 
-    if (hasFeedback) {
-      setIsOpenModal(true);
-    } else {
-      onAccept?.(selectedStarsCount);
-    }
-  }, [hasFeedback, onAccept]);
+      if (hasFeedback) {
+        setIsOpenModal(true);
+      } else {
+        onAccept?.(selectedStarsCount);
+      }
+    },
+    [hasFeedback, onAccept]
+  );
 
   const handleAccept = useCallback(() => {
     setIsOpenModal(false);
@@ -63,7 +66,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
     <>
       <Text title={feedbackTitle} />
       <Input
-        data-testid="RatingCard.Input"
+        data-testid='RatingCard.Input'
         placeholder={t('Ваш отзыв')}
         value={feedback}
         onChange={setFeedback}
@@ -73,13 +76,13 @@ export const RatingCard = memo((props: RatingCardProps) => {
 
   return (
     <Card
-      data-testid="RatingCard"
+      data-testid='RatingCard'
       className={classNames('', {}, [className])}
       max
     >
       <VStack
-        align="center"
-        gap="8"
+        align='center'
+        gap='8'
       >
         <Text title={starsCount ? t('Спасибо за оценку!') : title} />
         <StarRating
@@ -89,19 +92,29 @@ export const RatingCard = memo((props: RatingCardProps) => {
         />
       </VStack>
       <BrowserView>
-        <Modal isOpen={isModalOpen} lazy>
-          <VStack gap="32" max>
+        <Modal
+          isOpen={isModalOpen}
+          lazy
+        >
+          <VStack
+            gap='32'
+            max
+          >
             {modalContent}
-            <HStack max gap="16" justify="end">
+            <HStack
+              max
+              gap='16'
+              justify='end'
+            >
               <Button
-                data-testid="RatingCard.Close"
+                data-testid='RatingCard.Close'
                 theme={ButtonTheme.OUTLINE_RED}
                 onClick={handleCancel}
               >
                 {t('Закрыть')}
               </Button>
               <Button
-                data-testid="RatingCard.Send"
+                data-testid='RatingCard.Send'
                 onClick={handleAccept}
               >
                 {t('Отправить')}
@@ -116,7 +129,10 @@ export const RatingCard = memo((props: RatingCardProps) => {
           lazy
           onClose={handleCancel}
         >
-          <VStack max gap="32">
+          <VStack
+            max
+            gap='32'
+          >
             {modalContent}
             <Button
               onClick={handleAccept}

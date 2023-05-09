@@ -1,8 +1,6 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { getScrollSaveByPath, scrollSaveActions } from '@/features/ScrollSave';
-import {
-  memo, MutableRefObject, ReactNode, UIEvent, useRef
-} from 'react';
+import { memo, MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -21,12 +19,7 @@ interface PageProps extends TestProps {
 }
 
 export const Page = memo((props: PageProps) => {
-  const {
-    className,
-    children,
-    onScrollEnd,
-    isSaveScroll
-  } = props;
+  const { className, children, onScrollEnd, isSaveScroll } = props;
 
   const dispatch = useAppDispatch();
 
@@ -35,7 +28,9 @@ export const Page = memo((props: PageProps) => {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
 
-  const scrollPosition = useSelector((state: StateSchema) => getScrollSaveByPath(state, pathname));
+  const scrollPosition = useSelector((state: StateSchema) =>
+    getScrollSaveByPath(state, pathname)
+  );
 
   useInfiniteScroll({
     triggerRef,
@@ -52,10 +47,12 @@ export const Page = memo((props: PageProps) => {
   const handleScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
     if (!isSaveScroll) return;
 
-    dispatch(scrollSaveActions.setScrollPosition({
-      position: e.currentTarget.scrollTop,
-      path: pathname
-    }));
+    dispatch(
+      scrollSaveActions.setScrollPosition({
+        position: e.currentTarget.scrollTop,
+        path: pathname
+      })
+    );
   }, 1000);
 
   return (
@@ -66,7 +63,12 @@ export const Page = memo((props: PageProps) => {
       onScroll={handleScroll}
     >
       {children}
-      {onScrollEnd && <div className={cls.trigger} ref={triggerRef} />}
+      {onScrollEnd && (
+        <div
+          className={cls.trigger}
+          ref={triggerRef}
+        />
+      )}
     </main>
   );
 });

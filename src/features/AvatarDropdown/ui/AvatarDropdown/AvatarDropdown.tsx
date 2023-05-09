@@ -1,5 +1,8 @@
 import {
-  getUserAuthData, isUserAdmin, isUserManager, userActions
+  getUserAuthData,
+  isUserAdmin,
+  isUserManager,
+  userActions
 } from '@/entities/User';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -36,16 +39,22 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
   return (
     <Dropdown
       className={classNames('', {}, [className])}
-      trigger={<Avatar size={30} src={authData.avatar} />}
-      direction="bottom left"
+      trigger={
+        <Avatar
+          size={30}
+          src={authData.avatar}
+        />
+      }
+      direction='bottom left'
       items={[
         ...(isAdminPanelAvailable
-          ? [{
-            content: t('Админка'),
-            href: getRouteAdminPanel()
-          }]
-          : []
-        ),
+          ? [
+              {
+                content: t('Админка'),
+                href: getRouteAdminPanel()
+              }
+            ]
+          : []),
         {
           content: t('Профиль'),
           href: getRouteProfile(authData.id)

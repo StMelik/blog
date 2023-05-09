@@ -1,17 +1,10 @@
 {
-  "i18n-ally.localesPaths": [
-    "public/locales",
-    "src/shared/config/i18n"
-  ],
+  "i18n-ally.localesPaths": ["public/locales", "src/shared/config/i18n"],
   "i18n-ally.sourceLanguage": "ru",
   "i18n-ally.keystyle": "nested",
   "files.exclude": {
     "**/node_modules": true
   },
-  "cSpell.words": [
-    "скролла",
-    "consts",
-    "lastname"
-  ],
-  "jest.rootPath": "src", // ?
+  "cSpell.words": ["скролла", "consts", "lastname"],
+  "jest.rootPath": "src" // ?
 }

@@ -7,7 +7,8 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
-    'plugin:storybook/recommended'
+    'plugin:storybook/recommended',
+    'prettier'
   ],
   parser: '@typescript-eslint/parser',
   overrides: [{
@@ -44,7 +45,7 @@ module.exports = {
       jpg: 'always'
     }],
     'max-len': [2, {
-      code: 120,
+      code: 125,
       ignoreComments: true
     }],
     'comma-dangle': ['error', 'never'],

@@ -7,7 +7,7 @@ import { Text } from '@/shared/ui/Text';
 
 interface NotificationItemProps {
   className?: string;
-  item: Notification
+  item: Notification;
 }
 
 export const NotificationItem = (props: NotificationItemProps) => {
@@ -31,9 +31,9 @@ export const NotificationItem = (props: NotificationItemProps) => {
     return (
       <a
         className={cls.link}
-        target="_blank"
+        target='_blank'
         href={item.href}
-        rel="noreferrer"
+        rel='noreferrer'
       >
         {content}
       </a>

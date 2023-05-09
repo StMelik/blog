@@ -8,9 +8,7 @@ import { routeConfig } from '../config/routeConfig';
 export const AppRouter = memo(() => {
   const renderWithWrapper = useCallback((route: AppRoutesProps) => {
     const element = (
-      <Suspense fallback={<LoaderPage />}>
-        {route.element}
-      </Suspense>
+      <Suspense fallback={<LoaderPage />}>{route.element}</Suspense>
     );
 
     return (
@@ -18,9 +16,11 @@ export const AppRouter = memo(() => {
         key={route.path}
         path={route.path}
         element={
-          route.authOnly
-            ? <RequireAuth roles={route.roles}>{element}</RequireAuth>
-            : element
+          route.authOnly ? (
+            <RequireAuth roles={route.roles}>{element}</RequireAuth>
+          ) : (
+            element
+          )
         }
       />
     );
@@ -28,9 +28,7 @@ export const AppRouter = memo(() => {
 
   return (
     <Suspense fallback={<LoaderPage />}>
-      <Routes>
-        {Object.values(routeConfig).map(renderWithWrapper)}
-      </Routes>
+      <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>
     </Suspense>
   );
 });

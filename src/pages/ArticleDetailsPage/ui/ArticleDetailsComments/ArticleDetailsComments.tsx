@@ -18,34 +18,43 @@ interface ArticleDetailsCommentsProps {
   id?: string;
 }
 
-export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
-  const { className, id } = props;
+export const ArticleDetailsComments = memo(
+  (props: ArticleDetailsCommentsProps) => {
+    const { className, id } = props;
 
-  const { t } = useTranslation();
-  const dispatch = useAppDispatch();
+    const { t } = useTranslation();
+    const dispatch = useAppDispatch();
 
-  useInitialEffect(() => {
-    dispatch(fetchCommentsByArticleId(id));
-  });
+    useInitialEffect(() => {
+      dispatch(fetchCommentsByArticleId(id));
+    });
 
-  const comments = useSelector(getArticleComments.selectAll);
-  const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+    const comments = useSelector(getArticleComments.selectAll);
+    const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
-  const handleSendComment = useCallback(
-    (text: string) => {
-      dispatch(addCommentForArticle(text));
-    },
-    [dispatch]
-  );
+    const handleSendComment = useCallback(
+      (text: string) => {
+        dispatch(addCommentForArticle(text));
+      },
+      [dispatch]
+    );
 
-  return (
-    <VStack gap="16" max className={classNames('', {}, [className])}>
-      <Text
-        size={TextSize.L}
-        title={t('Комментарии')}
-      />
-      <AddCommentForm onSendComment={handleSendComment} />
-      <CommentList comments={comments} isLoading={commentsIsLoading} />
-    </VStack>
-  );
-});
+    return (
+      <VStack
+        gap='16'
+        max
+        className={classNames('', {}, [className])}
+      >
+        <Text
+          size={TextSize.L}
+          title={t('Комментарии')}
+        />
+        <AddCommentForm onSendComment={handleSendComment} />
+        <CommentList
+          comments={comments}
+          isLoading={commentsIsLoading}
+        />
+      </VStack>
+    );
+  }
+);

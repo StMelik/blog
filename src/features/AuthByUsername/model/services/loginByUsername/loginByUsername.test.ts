@@ -47,7 +47,9 @@ describe('loginByUsername', () => {
     thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }));
     const result = await thunk.callThunk({ password: '123', username: '123' });
 
-    expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
+    expect(thunk.dispatch).toHaveBeenCalledWith(
+      userActions.setAuthData(userValue)
+    );
     expect(thunk.dispatch).toHaveBeenCalledTimes(3);
     expect(thunk.api.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');

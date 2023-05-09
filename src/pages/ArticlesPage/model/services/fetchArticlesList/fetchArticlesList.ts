@@ -15,48 +15,48 @@ interface fetchArticlesListProps {
   replace?: boolean;
 }
 
-export const fetchArticlesList = createAsyncThunk<Article[], fetchArticlesListProps, ThunkConfig<string>>(
-  'articlesPage/fetchArticlesList',
-  async (_, thunkApi) => {
-    const {
-      extra,
-      rejectWithValue,
-      getState
-    } = thunkApi;
+export const fetchArticlesList = createAsyncThunk<
+  Article[],
+  fetchArticlesListProps,
+  ThunkConfig<string>
+>('articlesPage/fetchArticlesList', async (_, thunkApi) => {
+  const { extra, rejectWithValue, getState } = thunkApi;
 
-    const limit = getArticlesPageLimit(getState());
-    const page = getArticlesPageNum(getState());
-    const order = getArticlesPageOrder(getState());
-    const sort = getArticlesPageSort(getState());
-    const search = getArticlesPageSearch(getState());
-    const type = getArticlesPageType(getState());
+  const limit = getArticlesPageLimit(getState());
+  const page = getArticlesPageNum(getState());
+  const order = getArticlesPageOrder(getState());
+  const sort = getArticlesPageSort(getState());
+  const search = getArticlesPageSearch(getState());
+  const type = getArticlesPageType(getState());
 
-    try {
-      addQueryParams({
-        sort, order, search, type
-      });
+  try {
+    addQueryParams({
+      sort,
+      order,
+      search,
+      type
+    });
 
-      const response = await extra.api.get<Article[]>('/articles', {
-        params: {
-          _expand: 'user',
-          _page: page,
-          _limit: limit,
-          _sort: sort,
-          _order: order,
-          type: type === ArticleType.ALL ? undefined : type,
-          q: search
-        }
-      });
-
-      if (!response.data) {
-        throw new Error();
+    const response = await extra.api.get<Article[]>('/articles', {
+      params: {
+        _expand: 'user',
+        _page: page,
+        _limit: limit,
+        _sort: sort,
+        _order: order,
+        type: type === ArticleType.ALL ? undefined : type,
+        q: search
       }
+    });
 
-      return response.data;
-    } catch (error) {
-      console.log(error);
-
-      return rejectWithValue('error');
+    if (!response.data) {
+      throw new Error();
     }
+
+    return response.data;
+  } catch (error) {
+    console.log(error);
+
+    return rejectWithValue('error');
   }
-);
+});

@@ -14,7 +14,8 @@ const article = {
   user: {
     id: '1',
     username: 'admin',
-    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQADxKBqWGp4ovszHPo1bgz0uD51olEKaxw&usqp=CAU'
+    avatar:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQADxKBqWGp4ovszHPo1bgz0uD51olEKaxw&usqp=CAU'
   },
   type: ['IT', 'ITITIT', 'ITITIT', 'ITITIT'],
   blocks: [
@@ -93,7 +94,9 @@ export default {
   }
 } as ComponentMeta<typeof ArticleList>;
 
-const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+const Template: ComponentStory<typeof ArticleList> = (args) => (
+  <ArticleList {...args} />
+);
 
 export const Grid = Template.bind({});
 Grid.args = {};

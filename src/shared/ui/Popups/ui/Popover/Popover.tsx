@@ -38,7 +38,7 @@ export const Popover = (props: PopoverProps) => {
     >
       <HPopover.Button
         className={popupCls.trigger}
-        as="div"
+        as='div'
       >
         {trigger}
       </HPopover.Button>

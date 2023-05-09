@@ -3,7 +3,10 @@ import { ComponentStory, ComponentMeta } from '@storybook/react/';
 import { ArticleDetails } from './ArticleDetails';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Article } from '../../model/types/Article';
-import { ArticleBlockType, ArticleType } from '../../model/consts/articleConsts';
+import {
+  ArticleBlockType,
+  ArticleType
+} from '../../model/consts/articleConsts';
 
 const article: Article = {
   id: '1',
@@ -59,7 +62,9 @@ export default {
   }
 } as ComponentMeta<typeof ArticleDetails>;
 
-const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
+const Template: ComponentStory<typeof ArticleDetails> = (args) => (
+  <ArticleDetails {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};

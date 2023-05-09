@@ -9,8 +9,8 @@ import { getUserAuthData } from '@/entities/User';
 import { SidebarItemType } from '../../model/types/Sidebar';
 
 interface SidebarItemProps {
-  item: SidebarItemType
-  collapsed: boolean
+  item: SidebarItemType;
+  collapsed: boolean;
 }
 
 export const SidebarItem: FC<SidebarItemProps> = memo(({ item, collapsed }) => {

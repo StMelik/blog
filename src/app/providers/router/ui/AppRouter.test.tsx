@@ -1,5 +1,9 @@
 import { UserRole } from '@/entities/User';
-import { getRouteAbout, getRouteAdminPanel, getRouteProfile } from '@/shared/constants/router';
+import {
+  getRouteAbout,
+  getRouteAdminPanel,
+  getRouteProfile
+} from '@/shared/constants/router';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import { screen } from '@testing-library/react';
 import { AppRouter } from './AppRouter';

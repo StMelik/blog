@@ -1,6 +1,4 @@
-import {
-  ChangeEvent, useCallback, useMemo
-} from 'react';
+import { ChangeEvent, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Select.module.scss';
@@ -21,9 +19,7 @@ interface SelectProps<T extends string> {
 }
 
 export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
-  const {
-    className, label, options, value, onChange, readonly
-  } = props;
+  const { className, label, options, value, onChange, readonly } = props;
 
   const { t } = useTranslation();
 
@@ -35,15 +31,16 @@ export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
   );
 
   const optionsList = useMemo(
-    () => options?.map((opt) => (
-      <option
-        className={cls.option}
-        value={opt.value}
-        key={opt.value}
-      >
-        {opt.content}
-      </option>
-    )),
+    () =>
+      options?.map((opt) => (
+        <option
+          className={cls.option}
+          value={opt.value}
+          key={opt.value}
+        >
+          {opt.content}
+        </option>
+      )),
     [options]
   );
 

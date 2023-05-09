@@ -21,20 +21,32 @@ export const NotificationList = (props: NotificationListProps) => {
   if (isLoading) {
     return (
       <VStack
-        gap="16"
+        gap='16'
         max
         className={classNames('', {}, [className])}
       >
-        <Skeleton width="100%" borderRadius="8px" height="80px" />
-        <Skeleton width="100%" borderRadius="8px" height="80px" />
-        <Skeleton width="100%" borderRadius="8px" height="80px" />
+        <Skeleton
+          width='100%'
+          borderRadius='8px'
+          height='80px'
+        />
+        <Skeleton
+          width='100%'
+          borderRadius='8px'
+          height='80px'
+        />
+        <Skeleton
+          width='100%'
+          borderRadius='8px'
+          height='80px'
+        />
       </VStack>
     );
   }
 
   return (
     <VStack
-      gap="16"
+      gap='16'
       max
       className={classNames('', {}, [className])}
     >

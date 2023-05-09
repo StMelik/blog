@@ -6,8 +6,8 @@ function AboutPage() {
 
   return (
     <Page
-      className="about"
-      data-testid="AboutPage"
+      className='about'
+      data-testid='AboutPage'
     >
       {t('О сайте')}
     </Page>

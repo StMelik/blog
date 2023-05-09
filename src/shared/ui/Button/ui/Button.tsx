@@ -46,8 +46,12 @@ export const Button: FC<ButtonProps> = memo((props) => {
 
   return (
     <button
-      type="button"
-      className={classNames(cls.button, mods, [className, cls[theme], cls[size]])}
+      type='button'
+      className={classNames(cls.button, mods, [
+        className,
+        cls[theme],
+        cls[size]
+      ])}
       {...otherProps}
     >
       {children}

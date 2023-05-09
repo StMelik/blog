@@ -26,9 +26,14 @@ export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
   };
 
   return (
-    <section data-testid="sidebar" className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}>
+    <section
+      data-testid='sidebar'
+      className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [
+        className
+      ])}
+    >
       <Button
-        data-testid="sidebar-toggle"
+        data-testid='sidebar-toggle'
         onClick={handleCollapsed}
         className={cls.collapseBtn}
         theme={ButtonTheme.BACKGROUND_INVERTED}
@@ -39,8 +44,8 @@ export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
       </Button>
 
       <VStack
-        role="navigation"
-        gap="8"
+        role='navigation'
+        gap='8'
         className={cls.items}
       >
         {sidebarItemsList.map((item) => (

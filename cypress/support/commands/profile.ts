@@ -19,7 +19,8 @@ export const resetProfile = (profileId: string) => {
       country: 'Armenia',
       city: 'Karaganda',
       username: 'testUser',
-      avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQADxKBqWGp4ovszHPo1bgz0uD51olEKaxw&usqp=CAU'
+      avatar:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQADxKBqWGp4ovszHPo1bgz0uD51olEKaxw&usqp=CAU'
     }
   });
 };

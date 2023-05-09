@@ -10,9 +10,7 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { Page } from '@/widgets/Page';
 import { fetchMoreArticlesList } from '../../model/services/fetchMoreArticlesList/fetchMoreArticlesList';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import {
-  articlesPageReducer
-} from '../../model/slice/articlesPageSlice';
+import { articlesPageReducer } from '../../model/slice/articlesPageSlice';
 import { useSearchParams } from 'react-router-dom';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { ArticlesPageFilter } from '../ArticlesPageFilter';
@@ -46,7 +44,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   return (
     <DynamicModuleLouder reducers={reducers}>
       <Page
-        data-testid="ArticlesPage"
+        data-testid='ArticlesPage'
         onScrollEnd={handleLoadNextPage}
         className={classNames(cls.articlesPage, {}, [className])}
         isSaveScroll

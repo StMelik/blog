@@ -14,7 +14,7 @@ const AdminPanelPage = memo((props: AdminPanelPageProps) => {
 
   return (
     <Page
-      data-testid="AdminPanelPage"
+      data-testid='AdminPanelPage'
       className={classNames(cls.adminPanelPage, {}, [className])}
     >
       {t('Админ панель')}
