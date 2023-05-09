@@ -205,28 +205,44 @@
       "username": "admin",
       "password": "0",
       "roles": ["ADMIN"],
-      "avatar": "https://i.pinimg.com/222x/71/f4/94/71f49475aadd82338485844f50e167f9.jpg"
+      "avatar": "https://i.pinimg.com/222x/71/f4/94/71f49475aadd82338485844f50e167f9.jpg",
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isArticleRecommendationsEnabled": true
+      }
     },
     {
       "id": "2",
       "username": "user",
       "password": "0",
       "roles": ["USER"],
-      "avatar": "https://encsrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQADxKBqWGp4ovszHPo1bgz0uD51olEKaxw&usqp=CAU"
+      "avatar": "https://encsrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQADxKBqWGp4ovszHPo1bgz0uD51olEKaxw&usqp=CAU",
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isArticleRecommendationsEnabled": false
+      }
     },
     {
       "id": "3",
       "username": "manager",
       "password": "0",
       "roles": ["MANAGER"],
-      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQADxKBqWGp4ovszHPo1bgz0uD51olEKaxw&usqp=CAU"
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQADxKBqWGp4ovszHPo1bgz0uD51olEKaxw&usqp=CAU",
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isArticleRecommendationsEnabled": true
+      }
     },
     {
       "id": "4",
       "username": "testUser",
       "password": "123",
       "roles": ["ADMIN"],
-      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQADxKBqWGp4ovszHPo1bgz0uD51olEKaxw&usqp=CAU"
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQADxKBqWGp4ovszHPo1bgz0uD51olEKaxw&usqp=CAU",
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isArticleRecommendationsEnabled": true
+      }
     }
   ],
   "articles": [

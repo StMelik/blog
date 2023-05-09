@@ -14,6 +14,7 @@ import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetails
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleRating } from '@/features/ArticleRaiting';
+import { getFeatureFlags } from '@/shared/lib/features';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -28,6 +29,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
+
+  const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled');
+  const isArticleRecommendationsEnabled = getFeatureFlags(
+    'isArticleRecommendationsEnabled'
+  );
 
   if (!id) {
     return null;
@@ -45,8 +51,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         >
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
-          <ArticleRating articleId={id} />
-          <ArticleRecommendationsList />
+          {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+          {isArticleRecommendationsEnabled && <ArticleRecommendationsList />}
           <ArticleDetailsComments id={id} />
         </VStack>
       </Page>
