@@ -212,7 +212,8 @@
       },
       "jsonSettings": {
         "theme": "app_orange_theme",
-        "isFirstVisit": true
+        "isFirstVisit": true,
+        "isFirstVisitArticlePage": false
       }
     },
     {
@@ -227,7 +228,8 @@
       },
       "jsonSettings": {
         "theme": "app_dark_theme",
-        "isFirstVisit": true
+        "isFirstVisit": true,
+        "isFirstVisitArticlePage": false
       }
     },
     {
@@ -242,7 +244,8 @@
       },
       "jsonSettings": {
         "theme": "app_dark_theme",
-        "isFirstVisit": true
+        "isFirstVisit": true,
+        "isFirstVisitArticlePage": false
       }
     },
     {
