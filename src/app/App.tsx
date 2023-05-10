@@ -1,20 +1,26 @@
 /* eslint-disable i18next/no-literal-string */
-import { getUserInited, userActions } from '@/entities/User';
-import { Suspense, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { getUserInited, initAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { LoaderPage } from '@/widgets/LoaderPage';
 import { NavBar } from '@/widgets/NavBar';
 import { Sidebar } from '@/widgets/Sidebar';
+import { Suspense, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { AppRouter } from './providers/router';
 
 export function App() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const inited = useSelector(getUserInited);
 
   useEffect(() => {
-    dispatch(userActions.initAuthData());
+    dispatch(initAuthData());
   }, [dispatch]);
+
+  if (!inited) {
+    return <LoaderPage />;
+  }
 
   return (
     <div className={classNames('app', {}, [])}>
