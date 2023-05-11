@@ -34,6 +34,7 @@
     "storybook:build": "build-storybook -c ./config/storybook",
     "prepare": "husky install",
     "create:slice": "node ./scripts/createSlice/index.js",
+    "remove:feature": "ts-node ./scripts/remove-feature.ts",
     "postinstall": "node ./scripts/clear-cache.js"
   },
   "lint-staged": {

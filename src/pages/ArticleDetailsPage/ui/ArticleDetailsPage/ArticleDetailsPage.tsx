@@ -14,7 +14,7 @@ import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetails
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleRating } from '@/features/ArticleRaiting';
-import { toggleFeatures } from '@/shared/lib/features';
+import { ToggleFeature } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/Card';
 
 interface ArticleDetailsPageProps {
@@ -34,18 +34,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     return null;
   }
 
-  const articleRatingCard = toggleFeatures({
-    name: 'isArticleRatingEnabled',
-    on: () => <ArticleRating articleId={id} />,
-    off: () => <Card>{t('Оценка статей скоро появится')}</Card>
-  });
-
-  const articleRecommendationsCard = toggleFeatures({
-    name: 'isArticleRecommendationsEnabled',
-    on: () => <ArticleRecommendationsList />,
-    off: () => <Card>{t('Рекомендации скоро появятся')}</Card>
-  });
-
   return (
     <DynamicModuleLouder
       reducers={reducers}
@@ -58,8 +46,16 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         >
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
-          {articleRatingCard}
-          {articleRecommendationsCard}
+          <ToggleFeature
+            feature='isArticleRatingEnabled'
+            on={<ArticleRating articleId={id} />}
+            off={<Card>{t('Оценка статей скоро появится')}</Card>}
+          />
+          <ToggleFeature
+            feature='isArticleRecommendationsEnabled'
+            on={<ArticleRecommendationsList />}
+            off={<Card>{t('Рекомендации скоро появятся')}</Card>}
+          />
           <ArticleDetailsComments id={id} />
         </VStack>
       </Page>

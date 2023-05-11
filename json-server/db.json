@@ -211,7 +211,7 @@
         "isArticleRecommendationsEnabled": true
       },
       "jsonSettings": {
-        "theme": "app_orange_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": true,
         "isFirstVisitArticlePage": false
       }
