@@ -1,20 +1,15 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 
-import SwitcherIcon from '@/shared/assets/icons/theme-switcher.svg';
+import ThemeIcon from '@/shared/assets/icons/theme-switcher.svg';
 import { FC, memo, useCallback } from 'react';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { Theme } from '@/shared/constants/theme';
 import { saveJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Icon } from '@/shared/ui/Icon';
 
 interface ThemeSwitcherProps {
   className?: string;
-}
-
-enum IconTheme {
-  LIGHT = '#FFC700',
-  DARK = '#0115C6'
 }
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
@@ -34,8 +29,11 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
       onClick={handleToggleTheme}
       theme={ButtonTheme.CLEAR}
     >
-      <SwitcherIcon
-        fill={theme === Theme.LIGHT ? IconTheme.LIGHT : IconTheme.DARK}
+      <Icon
+        Svg={ThemeIcon}
+        width={40}
+        height={40}
+        inverted
       />
     </Button>
   );
