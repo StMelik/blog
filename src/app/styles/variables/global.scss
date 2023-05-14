@@ -1,6 +1,10 @@
 :root {
   --font-family-main: 'Consolas', 'Times New Roman', serif;
 
+  // redesigned
+  --font-family-text: 'Nunito Sans', sans-serif;
+  --font-family-title: 'Roboto', sans-serif;
+
   // s
   --font-size-s: 12px;
   --font-line-s: 20px;
@@ -34,4 +38,17 @@
   --overlay-color: #0009;
   --red-light: #f00;
   --red-dark: #bb0505;
+
+  // redesigned
+  // s
+  --font-s-redesigned: var(--font-size-s) / var(--font-line-s) var(--font-family-text);
+
+  // m
+  --font-m-redesigned: var(--font-size-m) / var(--font-line-m) var(--font-family-text);
+
+  // l
+  --font-l-redesigned: var(--font-size-l) / var(--font-line-l) var(--font-family-title);
+
+  // xl
+  --font-xl-redesigned: var(--font-size-xl) / var(--font-line-xl) var(--font-family-title);
 }

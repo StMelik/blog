@@ -208,11 +208,13 @@
       "avatar": "https://i.pinimg.com/222x/71/f4/94/71f49475aadd82338485844f50e167f9.jpg",
       "features": {
         "isArticleRatingEnabled": true,
-        "isArticleRecommendationsEnabled": true
+        "isArticleRecommendationsEnabled": true,
+        "isFirstVisit": true,
+        "isFirstVisitArticlePage": false,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
         "theme": "app_light_theme",
-        "isFirstVisit": true,
         "isFirstVisitArticlePage": false
       }
     },
@@ -224,12 +226,12 @@
       "avatar": "https://encsrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQADxKBqWGp4ovszHPo1bgz0uD51olEKaxw&usqp=CAU",
       "features": {
         "isArticleRatingEnabled": false,
-        "isArticleRecommendationsEnabled": false
-      },
-      "jsonSettings": {
-        "theme": "app_dark_theme",
+        "isArticleRecommendationsEnabled": false,
         "isFirstVisit": true,
         "isFirstVisitArticlePage": false
+      },
+      "jsonSettings": {
+        "theme": "app_dark_theme"
       }
     },
     {
@@ -240,12 +242,12 @@
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQADxKBqWGp4ovszHPo1bgz0uD51olEKaxw&usqp=CAU",
       "features": {
         "isArticleRatingEnabled": false,
-        "isArticleRecommendationsEnabled": true
-      },
-      "jsonSettings": {
-        "theme": "app_dark_theme",
+        "isArticleRecommendationsEnabled": true,
         "isFirstVisit": true,
         "isFirstVisitArticlePage": false
+      },
+      "jsonSettings": {
+        "theme": "app_dark_theme"
       }
     },
     {
@@ -256,11 +258,11 @@
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgQADxKBqWGp4ovszHPo1bgz0uD51olEKaxw&usqp=CAU",
       "features": {
         "isArticleRatingEnabled": true,
-        "isArticleRecommendationsEnabled": true
+        "isArticleRecommendationsEnabled": true,
+        "isFirstVisit": true
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
-        "isFirstVisit": true
+        "theme": "app_dark_theme"
       }
     }
   ],

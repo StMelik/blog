@@ -6,7 +6,7 @@
 @import './theme/ligth';
 @import './theme/orange';
 
-body,
+.app,
 .app_modal,
 .app_drawer {
   font: var(--font-m);
@@ -16,6 +16,13 @@ body,
 .app {
   background-color: var(--bg-color);
   min-height: 100vh;
+}
+
+.app-redesigned {
+  background-color: var(--bg-redesigned);
+  min-height: 100vh;
+  font: var(--font-m-redesigned);
+  color: var(--text-redesigned);
 }
 
 .content-page {

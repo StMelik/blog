@@ -6,16 +6,27 @@
   --inverted-primary-color: #d3d3d3;
   --inverted-secondary-color: #8f8f8f;
 
-    // skeleton
-    --skeleton-color: #d3d3d3;
-    --skeleton-shadow: #bebebe;
+  // skeleton
+  --skeleton-color: #d3d3d3;
+  --skeleton-shadow: #bebebe;
 
-    // code
-    --code-bg: #cecece;
+  // code
+  --code-bg: #cecece;
 
-    // card
-    --card-bg: #ccc;
+  // card
+  --card-bg: #ccc;
 
-    // listbox
-    --listbox-bg: #ccc;
+  // listbox
+  --listbox-bg: #ccc;
+
+  // redesigned
+  --dark-bg-redesigned: #FFF;
+  --bg-redesigned: #EFF5F6;
+  --light-bg-redesigned: #E2EEF1;
+  --text-redesigned: #141C1F;
+  --hint-redesigned: #ADBCC0;
+  --cancel-redesigned: #F77;
+  --save-redesigned: #62DE85;
+  --icon-redesigned: #5ED3F3;
+  --accent-redesigned: #00C8FF;
 }
