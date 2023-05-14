@@ -19,3 +19,26 @@
     width: 0;
   }
 }
+
+.sidebarItemRedesigned {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.collapsedRedesigned {
+  column-gap: 0;
+  padding: 0 8px;
+
+  .link {
+    opacity: 0;
+    width: 0;
+  }
+}
+
+.active {
+  background: linear-gradient(90deg, rgb(94 211 243 / 30%) 1%, rgb(94 211 243 / 0%) 100%);
+  border-left: 2px solid var(--accent-redesigned);
+}

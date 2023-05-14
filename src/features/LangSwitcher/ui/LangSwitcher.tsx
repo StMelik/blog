@@ -1,7 +1,9 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/deprecated/Button';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
+import { ToggleFeature } from '@/shared/lib/features';
+import { Button } from '@/shared/ui/redesigned/Button';
 
 export enum AppLang {
   RU = 'ru',
@@ -24,12 +26,26 @@ export const LangSwitcher: FC<LangSwitcherProps> = memo(
     };
 
     return (
-      <Button
-        className={classNames('', {}, [className])}
-        onClick={handleToggleLang}
-      >
-        {t(short ? 'Короткий язык' : 'Язык')}
-      </Button>
+      <ToggleFeature
+        feature='isAppRedesigned'
+        on={
+          <Button
+            className={classNames('', {}, [className])}
+            onClick={handleToggleLang}
+            variant='clear'
+          >
+            {t(short ? 'Короткий язык' : 'Язык')}
+          </Button>
+        }
+        off={
+          <ButtonDeprecated
+            className={classNames('', {}, [className])}
+            onClick={handleToggleLang}
+          >
+            {t(short ? 'Короткий язык' : 'Язык')}
+          </ButtonDeprecated>
+        }
+      />
     );
   }
 );

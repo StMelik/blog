@@ -1,21 +1,16 @@
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import AppIcon from '@/shared/assets/icons/app-icon.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { memo } from 'react';
+import { HStack } from '../../deprecated/Stack';
 import cls from './AppLogo.module.scss';
-import { HStack } from '../Stack';
 
 interface AppLogoProps {
   className?: string;
+  size?: number;
 }
 
-/**
- * @deprecated
- */
 export const AppLogo = memo((props: AppLogoProps) => {
-  const { className } = props;
-
-  const { t } = useTranslation();
+  const { className, size = 50 } = props;
 
   return (
     <HStack
@@ -25,7 +20,11 @@ export const AppLogo = memo((props: AppLogoProps) => {
     >
       <div className={cls.gradientBig} />
       <div className={cls.gradientSmall} />
-      <AppIcon className={cls.appIcon} />
+      <AppIcon
+        width={size}
+        height={size}
+        className={cls.appIcon}
+      />
     </HStack>
   );
 });

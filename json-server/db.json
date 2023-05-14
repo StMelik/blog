@@ -214,7 +214,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isFirstVisitArticlePage": false
       }
     },
@@ -231,7 +231,8 @@
         "isFirstVisitArticlePage": false
       },
       "jsonSettings": {
-        "theme": "app_dark_theme"
+        "theme": "app_dark_theme",
+        "isFirstVisitArticlePage": false
       }
     },
     {
