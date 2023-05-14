@@ -2,13 +2,13 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import cls from './NotificationButton.module.scss';
 import { memo, useCallback, useState } from 'react';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Popover } from '@/shared/ui/Popups';
-import { Icon } from '@/shared/ui/Icon';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Popover } from '@/shared/ui/deprecated/Popups';
+import { Icon } from '@/shared/ui/deprecated/Icon';
 import { NotificationList } from '@/entities/Notification';
 
 import NotificationsIcon from '@/shared/assets/icons/notification-20-20.svg';
-import { Drawer } from '@/shared/ui/Drawer';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import { BrowserView, MobileView } from 'react-device-detect';
 
 interface NotificationButtonProps {

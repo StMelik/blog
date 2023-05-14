@@ -11,8 +11,8 @@ import {
 } from '@/shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { VStack } from '@/shared/ui/Stack';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileErrors } from '../../model/selectors/getProfileErrors/getProfileErrors';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';

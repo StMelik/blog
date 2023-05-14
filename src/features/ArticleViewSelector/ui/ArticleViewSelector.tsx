@@ -3,9 +3,9 @@ import { memo } from 'react';
 import GridIcon from '@/shared/assets/icons/grid-24-24.svg';
 import ListIcon from '@/shared/assets/icons/list-24-24.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 
-import { Icon } from '@/shared/ui/Icon';
+import { Icon } from '@/shared/ui/deprecated/Icon';
 import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
