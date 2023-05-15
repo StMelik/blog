@@ -19,7 +19,7 @@ import {
   DynamicModuleLouder,
   ReducersList
 } from '@/shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 export interface AddCommentFormProps {
   className?: string;
