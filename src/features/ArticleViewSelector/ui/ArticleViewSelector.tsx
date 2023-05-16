@@ -1,11 +1,20 @@
 import { ArticleView } from '@/entities/Article';
-import { memo } from 'react';
-import GridIcon from '@/shared/assets/icons/grid-24-24.svg';
-import ListIcon from '@/shared/assets/icons/list-24-24.svg';
+import ListIcon from '@/shared/assets/icons/burger.svg';
+import GridIconDeprecated from '@/shared/assets/icons/grid-24-24.svg';
+import ListIconDeprecated from '@/shared/assets/icons/list-24-24.svg';
+import GridIcon from '@/shared/assets/icons/tile.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import {
+  Button as ButtonDeprecated,
+  ButtonTheme
+} from '@/shared/ui/deprecated/Button';
+import { memo } from 'react';
 
-import { Icon } from '@/shared/ui/deprecated/Icon';
+import { ToggleFeature, toggleFeatures } from '@/shared/lib/features';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { getHStack } from '@/shared/ui/redesigned/Stack';
 import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
@@ -17,11 +26,19 @@ interface ArticleViewSelectorProps {
 const viewTypes = [
   {
     view: ArticleView.GRID,
-    icon: GridIcon
+    icon: toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => GridIcon,
+      off: () => GridIconDeprecated
+    })
   },
   {
     view: ArticleView.LIST,
-    icon: ListIcon
+    icon: toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => ListIcon,
+      off: () => ListIconDeprecated
+    })
   }
 ];
 
@@ -33,23 +50,48 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
   };
 
   return (
-    <div className={classNames(cls.articleViewSelector, {}, [className])}>
-      {viewTypes.map((viewType) => (
-        <Button
-          key={viewType.view}
-          theme={ButtonTheme.CLEAR}
-          onClick={handleViewClick(viewType.view)}
+    <ToggleFeature
+      feature='isAppRedesigned'
+      on={
+        <Card
+          className={classNames(cls.articleViewSelectorRedesigned, {}, [
+            className,
+            getHStack({ gap: '8' })
+          ])}
+          border='round'
         >
-          <Icon
-            width={24}
-            height={24}
-            className={classNames('', {
-              [cls.notSelected]: view !== viewType.view
-            })}
-            Svg={viewType.icon}
-          />
-        </Button>
-      ))}
-    </div>
+          {viewTypes.map((viewType) => (
+            <Icon
+              Svg={viewType.icon}
+              clickable
+              onClick={handleViewClick(viewType.view)}
+              className={classNames('', {
+                [cls.notSelected]: view !== viewType.view
+              })}
+            />
+          ))}
+        </Card>
+      }
+      off={
+        <div className={classNames(cls.articleViewSelector, {}, [className])}>
+          {viewTypes.map((viewType) => (
+            <ButtonDeprecated
+              key={viewType.view}
+              theme={ButtonTheme.CLEAR}
+              onClick={handleViewClick(viewType.view)}
+            >
+              <IconDeprecated
+                width={24}
+                height={24}
+                className={classNames('', {
+                  [cls.notSelected]: view !== viewType.view
+                })}
+                Svg={viewType.icon}
+              />
+            </ButtonDeprecated>
+          ))}
+        </div>
+      }
+    />
   );
 });

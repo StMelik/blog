@@ -21,6 +21,50 @@ export interface FlexProps extends DivProps {
   max?: boolean;
 }
 
+export type FlexParams = Pick<
+  FlexProps,
+  'justify' | 'align' | 'direction' | 'gap' | 'max'
+>;
+
+const justifyClasses: Record<FlexJustify, string> = {
+  start: cls.justifyStart,
+  center: cls.justifyCenter,
+  end: cls.justifyEnd,
+  between: cls.justifyBetween
+};
+
+const alignClasses: Record<FlexAlign, string> = {
+  start: cls.alignStart,
+  center: cls.alignCenter,
+  end: cls.alignEnd
+};
+
+const directionClasses: Record<FlexDirection, string> = {
+  row: cls.directionRow,
+  column: cls.directionColumn
+};
+
+const gapClasses: Record<FlexGap, string> = {
+  4: cls.gap4,
+  8: cls.gap8,
+  16: cls.gap16,
+  32: cls.gap32
+};
+
+export const getFlex = (params: FlexParams): string =>
+  classNames(
+    cls.flex,
+    {
+      [cls.max]: params.max
+    },
+    [
+      params.justify && justifyClasses[params.justify],
+      params.align && alignClasses[params.align],
+      params.direction && directionClasses[params.direction],
+      params.gap && gapClasses[params.gap]
+    ]
+  );
+
 export const Flex = (props: FlexProps) => {
   const {
     className,
@@ -32,31 +76,6 @@ export const Flex = (props: FlexProps) => {
     max,
     ...otherProps
   } = props;
-
-  const justifyClasses: Record<FlexJustify, string> = {
-    start: cls.justifyStart,
-    center: cls.justifyCenter,
-    end: cls.justifyEnd,
-    between: cls.justifyBetween
-  };
-
-  const alignClasses: Record<FlexAlign, string> = {
-    start: cls.alignStart,
-    center: cls.alignCenter,
-    end: cls.alignEnd
-  };
-
-  const directionClasses: Record<FlexDirection, string> = {
-    row: cls.directionRow,
-    column: cls.directionColumn
-  };
-
-  const gapClasses: Record<FlexGap, string> = {
-    4: cls.gap4,
-    8: cls.gap8,
-    16: cls.gap16,
-    32: cls.gap32
-  };
 
   const classes = [
     className,

@@ -5,6 +5,10 @@ import { Select, SelectOption } from '@/shared/ui/deprecated/Select';
 import cls from './ArticleSortSelector.module.scss';
 import { SortOrder } from '@/shared/types/sort';
 import { ArticleSortField } from '@/entities/Article';
+import { ToggleFeature } from '@/shared/lib/features';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
+import { getVStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface ArticleSortSelectorProps {
   className?: string;
@@ -52,20 +56,45 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
   );
 
   return (
-    <div className={classNames(cls.articleSortSelector, {}, [className])}>
-      <Select<ArticleSortField>
-        options={sortFieldOptions}
-        label={t('Сортировать по')}
-        value={sort}
-        onChange={onChangeSort}
-      />
-      <Select<SortOrder>
-        className={cls.order}
-        options={orderOptions}
-        label={t('по')}
-        value={order}
-        onChange={onChangeOrder}
-      />
-    </div>
+    <ToggleFeature
+      feature='isAppRedesigned'
+      on={
+        <div
+          className={classNames(cls.articleSortSelectorRedesigned, {}, [
+            className,
+            getVStack({ gap: '8' })
+          ])}
+        >
+          <Text text={t('Сортировать по:')} />
+          <ListBox<ArticleSortField>
+            items={sortFieldOptions}
+            value={sort}
+            onChange={onChangeSort}
+          />
+          <ListBox<SortOrder>
+            items={orderOptions}
+            value={order}
+            onChange={onChangeOrder}
+          />
+        </div>
+      }
+      off={
+        <div className={classNames(cls.articleSortSelector, {}, [className])}>
+          <Select<ArticleSortField>
+            options={sortFieldOptions}
+            label={t('Сортировать по')}
+            value={sort}
+            onChange={onChangeSort}
+          />
+          <Select<SortOrder>
+            className={cls.order}
+            options={orderOptions}
+            label={t('по')}
+            value={order}
+            onChange={onChangeOrder}
+          />
+        </div>
+      }
+    />
   );
 });
