@@ -2,7 +2,9 @@ import { Country } from '../../model/types/CountrySchema';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useCallback } from 'react';
-import { ListBox } from '@/shared/ui/deprecated/Popups';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
+import { ToggleFeature } from '@/shared/lib/features';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 interface CountrySelectProps {
   className?: string;
@@ -32,15 +34,32 @@ export const CountrySelect = (props: CountrySelectProps) => {
   );
 
   return (
-    <ListBox
-      value={value}
-      onChange={handleChange}
-      className={classNames('', {}, [className])}
-      defaultValue={t('Страна')}
-      label={t('Укажите страну')}
-      items={options}
-      readonly={readonly}
-      direction='top right'
+    <ToggleFeature
+      feature='isAppRedesigned'
+      on={
+        <ListBox
+          value={value}
+          onChange={handleChange}
+          className={classNames('', {}, [className])}
+          defaultValue={t('Страна')}
+          label={t('Страна')}
+          items={options}
+          readonly={readonly}
+          direction='top right'
+        />
+      }
+      off={
+        <ListBoxDeprecated
+          value={value}
+          onChange={handleChange}
+          className={classNames('', {}, [className])}
+          defaultValue={t('Страна')}
+          label={t('Укажите страну')}
+          items={options}
+          readonly={readonly}
+          direction='top right'
+        />
+      }
     />
   );
 };

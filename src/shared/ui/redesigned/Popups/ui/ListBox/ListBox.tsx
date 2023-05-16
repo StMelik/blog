@@ -50,7 +50,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
     <HStack gap='4'>
       {label && (
         <span className={classNames('', { [popupCls.disabled]: readonly })}>
-          {`${label}>`}
+          {`${label}:`}
         </span>
       )}
 
