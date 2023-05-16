@@ -1,9 +1,11 @@
-import { ArticleView } from '../../model/consts/articleConsts';
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/deprecated/Card';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { toggleFeatures } from '@/shared/lib/features';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+import { memo } from 'react';
+import { ArticleView } from '../../model/consts/articleConsts';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {
@@ -15,7 +17,17 @@ export const ArticleListItemSkeleton = memo(
   (props: ArticleListItemSkeletonProps) => {
     const { className, view } = props;
 
-    const { t } = useTranslation();
+    const Skeleton = toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => SkeletonRedesigned,
+      off: () => SkeletonDeprecated
+    });
+
+    const Card = toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => CardRedesigned,
+      off: () => CardDeprecated
+    });
 
     if (view === ArticleView.LIST) {
       return (
