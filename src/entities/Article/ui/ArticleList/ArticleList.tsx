@@ -7,6 +7,8 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import { ArticleView } from '../../model/consts/articleConsts';
+import { ToggleFeature } from '@/shared/lib/features';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleListProps {
   className?: string;
@@ -61,13 +63,33 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
   // добавить виртуальный список
   return (
-    <div
-      className={classNames(cls.articleList, {}, [className, cls[view]])}
-      data-testid='ArticleList'
-    >
-      {isVirtualized ? <span /> : articles.map(renderArticle)}
+    <ToggleFeature
+      feature='isAppRedesigned'
+      on={
+        <HStack
+          gap='16'
+          wrap='wrap'
+          className={classNames(cls.articleListRedesigned, {}, [
+            className,
+            cls[view]
+          ])}
+          data-testid='ArticleList'
+        >
+          {isVirtualized ? <span /> : articles.map(renderArticle)}
 
-      {isLoading && getSkeletons(view)}
-    </div>
+          {isLoading && getSkeletons(view)}
+        </HStack>
+      }
+      off={
+        <div
+          className={classNames(cls.articleList, {}, [className, cls[view]])}
+          data-testid='ArticleList'
+        >
+          {isVirtualized ? <span /> : articles.map(renderArticle)}
+
+          {isLoading && getSkeletons(view)}
+        </div>
+      }
+    />
   );
 });

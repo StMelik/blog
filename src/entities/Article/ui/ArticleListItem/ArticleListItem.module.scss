@@ -106,3 +106,14 @@
     text-overflow: ellipsis;
   }
 }
+
+.ArticleListItemRedesigned {
+  &.LIST {
+    width: 100%;
+  }
+  
+  &.GRID {
+    width: 230px;
+    height: 350px;
+  }
+}
