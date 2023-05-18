@@ -11,7 +11,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
 import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
-import { getRouteAdminPanel, getRouteProfile } from '@/shared/constants/router';
+import {
+  getRouteAdminPanel,
+  getRouteProfile,
+  getRouteSettings
+} from '@/shared/constants/router';
 import { ToggleFeature } from '@/shared/lib/features';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { Dropdown } from '@/shared/ui/redesigned/Popups';
@@ -48,6 +52,10 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
           }
         ]
       : []),
+    {
+      content: t('Настройки'),
+      href: getRouteSettings()
+    },
     {
       content: t('Профиль'),
       href: getRouteProfile(authData.id)

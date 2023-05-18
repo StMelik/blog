@@ -8,7 +8,8 @@ import {
   getRouteArticles,
   getRouteForbidden,
   getRouteMain,
-  getRouteProfile
+  getRouteProfile,
+  getRouteSettings
 } from '@/shared/constants/router';
 import { AppRoutesProps } from '@/shared/types/router';
 import { AboutPage } from '@/pages/AboutPage';
@@ -21,11 +22,17 @@ import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { UserRole } from '@/entities/User';
+import { SettingsPage } from '@/pages/SettingsPage';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {
     path: getRouteMain(),
     element: <MainPage />
+  },
+  [AppRoutes.SETTINGS]: {
+    path: getRouteSettings(),
+    element: <SettingsPage />,
+    authOnly: true
   },
   [AppRoutes.ABOUT]: {
     path: getRouteAbout(),
