@@ -5,12 +5,12 @@ import { Card } from '@/shared/ui/deprecated/Card';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/deprecated/Text';
 import { StarRating } from '@/shared/ui/deprecated/StarRating';
-import { Modal } from '@/shared/ui/deprecated/Modal';
 import { Input } from '@/shared/ui/deprecated/Input';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
 
 import { BrowserView, MobileView } from 'react-device-detect';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
+import { Modal } from '@/shared/ui/redesigned/Modal';
 
 interface RatingCardProps {
   className?: string;

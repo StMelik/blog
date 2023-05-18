@@ -28,7 +28,10 @@ export function App() {
     <ToggleFeature
       feature='isAppRedesigned'
       on={
-        <div className={classNames('app-redesigned', {}, [])}>
+        <div
+          id='app'
+          className={classNames('app-redesigned', {}, [])}
+        >
           <Suspense fallback=''>
             <MainLayout
               content={<AppRouter />}
@@ -40,7 +43,10 @@ export function App() {
         </div>
       }
       off={
-        <div className={classNames('app', {}, [])}>
+        <div
+          id='app'
+          className={classNames('app', {}, [])}
+        >
           <Suspense fallback=''>
             <NavBar />
             <div className='content-page'>
