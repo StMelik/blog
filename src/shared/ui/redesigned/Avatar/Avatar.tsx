@@ -5,16 +5,19 @@ import UserIcon from '../../../assets/icons/user-filled.svg';
 import { Icon } from '../Icon';
 import { Skeleton } from '../Skeleton';
 import { AppImage } from '../../redesigned/AppImage';
+import { Text } from '../Text';
+import { HStack } from '../Stack';
 
 interface AvatarProps {
   className?: string;
   src?: string;
   alt?: string;
   size?: number;
+  username?: string;
 }
 
 export const Avatar = (props: AvatarProps) => {
-  const { className, src, alt = 'Аватар', size = 100 } = props;
+  const { className, src, alt = 'Аватар', size = 100, username } = props;
 
   const style = useMemo<CSSProperties>(
     () => ({
@@ -40,7 +43,7 @@ export const Avatar = (props: AvatarProps) => {
     />
   );
 
-  return (
+  const image = (
     <AppImage
       fallback={fallback}
       errorFallback={errorFallback}
@@ -50,4 +53,18 @@ export const Avatar = (props: AvatarProps) => {
       style={style}
     />
   );
+
+  if (username) {
+    return (
+      <HStack gap='8'>
+        {image}
+        <Text
+          text={username}
+          bold
+        />
+      </HStack>
+    );
+  }
+
+  return image;
 };

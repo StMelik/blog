@@ -35,19 +35,6 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
     </HStack>
   );
 
-  const userInfo = (
-    <>
-      <Avatar
-        size={32}
-        src={article.user.avatar}
-      />
-      <Text
-        text={article.user.username}
-        bold
-      />
-    </>
-  );
-
   if (view === ArticleView.LIST) {
     const textBlock = article.blocks.find(
       (block) => block.type === ArticleBlockType.TEXT
@@ -65,7 +52,11 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
         ])}
       >
         <HStack gap='8'>
-          {userInfo}
+          <Avatar
+            size={32}
+            src={article.user.avatar}
+            username={article.user.username}
+          />
           <Text text={article.createdAt} />
         </HStack>
 
@@ -158,7 +149,11 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
               />
               {views}
             </HStack>
-            <HStack gap='4'>{userInfo}</HStack>
+            <Avatar
+              size={32}
+              src={article.user.avatar}
+              username={article.user.username}
+            />
           </VStack>
         </VStack>
       </Card>

@@ -8,6 +8,9 @@ export {
 } from './model/consts/articleConsts';
 
 export type { ArticleDetailsSchema } from './model/types/ArticleDetailsSchema';
-export { getArticleDetailsData } from './model/selectors/getArticleDetails';
+export {
+  getArticleDetailsData,
+  useGetArticleDetailsData
+} from './model/selectors/getArticleDetails';
 
 export { ArticleList } from './ui/ArticleList/ArticleList';
