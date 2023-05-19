@@ -116,6 +116,7 @@ export const ProfileCardRedesigned = (props: ProfileCardProps) => {
       className={classNames('', {}, [className, getVStack({ gap: '32' })])}
       max
       padding='24'
+      border='partial'
     >
       {data?.avatar && (
         <HStack

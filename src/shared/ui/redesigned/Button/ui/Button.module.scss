@@ -40,20 +40,53 @@
 }
 
 .outline {
-  border: 2px solid var(--icon-redesigned);
+  border: 2px solid ;
   background: none;
   border-radius: 34px;
 
   &:hover {
     border: 2px solid var(--accent-redesigned);
   }
+
+  &.normal {
+    border-color: var(--icon-redesigned);
+  } 
+  
+  &.success {
+    border-color: var(--save-redesigned);
+
+    &:hover {
+      color: var(--save-redesigned);
+      opacity: 0.8;
+    }
+  } 
+  
+  &.error {
+    border-color: var(--cancel-redesigned);
+
+    &:hover {
+      color: var(--cancel-redesigned);
+      opacity: 0.8;
+    }
+  }
 }
 
 .filled {
-  background-color: var(--light-bg-redesigned);
   border: none;
   outline: none;
   border-radius: 34px;
+
+  &.normal {
+    background-color: var(--light-bg-redesigned);
+  } 
+  
+  &.success {
+    background-color: var(--save-redesigned);
+  } 
+  
+  &.error {
+    background-color: var(--cancel-redesigned);
+  }
 }
 
 .square {

@@ -5,14 +5,18 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from '@/shared/ui/deprecated/AppLink';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import {
+  Button as ButtonDeprecated,
+  ButtonTheme
+} from '@/shared/ui/deprecated/Button';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { NotificationButton } from '@/features/NotificationButton';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import cls from './NavBar.module.scss';
 import { getRouteArticleCreate } from '@/shared/constants/router';
-import { ToggleFeature } from '@/shared/lib/features';
+import { ToggleFeature, toggleFeatures } from '@/shared/lib/features';
+import { Button } from '@/shared/ui/redesigned/Button';
 
 interface NavBarProps {
   className?: string;
@@ -31,12 +35,18 @@ export const NavBar: FC<NavBarProps> = memo(({ className }) => {
     setIsAuthModal(true);
   }, []);
 
+  const mainClass = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => cls.navBarRedesigned,
+    off: () => cls.navBar
+  });
+
   if (authData) {
     return (
       <ToggleFeature
         feature='isAppRedesigned'
         on={
-          <header className={classNames(cls.navBarRedesigned, {}, [className])}>
+          <header className={classNames(mainClass, {}, [className])}>
             <HStack
               className={cls.actions}
               gap='16'
@@ -76,13 +86,26 @@ export const NavBar: FC<NavBarProps> = memo(({ className }) => {
   }
 
   return (
-    <header className={classNames(cls.navBar, {}, [className])}>
-      <Button
-        theme={ButtonTheme.CLEAR_INVERTED}
-        onClick={handleShowModal}
-      >
-        {t('Войти')}
-      </Button>
+    <header className={classNames(mainClass, {}, [className])}>
+      <ToggleFeature
+        feature='isAppRedesigned'
+        on={
+          <Button
+            variant='clear'
+            onClick={handleShowModal}
+          >
+            {t('Войти')}
+          </Button>
+        }
+        off={
+          <ButtonDeprecated
+            theme={ButtonTheme.CLEAR_INVERTED}
+            onClick={handleShowModal}
+          >
+            {t('Войти')}
+          </ButtonDeprecated>
+        }
+      />
       {isAuthModal && (
         <LoginModal
           isOpen={isAuthModal}
