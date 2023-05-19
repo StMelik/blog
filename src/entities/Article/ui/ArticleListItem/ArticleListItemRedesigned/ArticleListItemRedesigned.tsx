@@ -115,11 +115,12 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
       <Card
         className={cls.card}
         border='round'
+        padding='0'
       >
         <AppImage
           fallback={
             <Skeleton
-              width={200}
+              width='100%'
               height={200}
             />
           }
@@ -150,6 +151,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
               {views}
             </HStack>
             <Avatar
+              className={cls.avatar}
               size={32}
               src={article.user.avatar}
               username={article.user.username}
