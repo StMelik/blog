@@ -15,9 +15,6 @@ interface ModalProps {
   lazy?: boolean;
 }
 
-/**
- * @deprecated
- */
 export const Modal: FC<ModalProps> = ({
   className,
   children,

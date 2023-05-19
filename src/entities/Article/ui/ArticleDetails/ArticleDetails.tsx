@@ -5,7 +5,7 @@ import {
   DynamicModuleLouder,
   ReducersList
 } from '@/shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
-import { ToggleFeature } from '@/shared/lib/features';
+import { ToggleFeature, toggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
@@ -18,7 +18,7 @@ import {
   TextTheme
 } from '@/shared/ui/deprecated/Text';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
-import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { memo } from 'react';
@@ -99,7 +99,7 @@ const Redesigned = () => {
         className={cls.img}
         src={article?.img}
         fallback={
-          <Skeleton
+          <SkeletonRedesigned
             width='100%'
             height={420}
             borderRadius='16px'
@@ -109,6 +109,44 @@ const Redesigned = () => {
 
       {article?.blocks.map(renderArticleBlock)}
     </>
+  );
+};
+
+const ArticleDetailsSkeleton = () => {
+  const Skeleton = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => SkeletonRedesigned,
+    off: () => SkeletonDeprecated
+  });
+
+  return (
+    <VStack
+      gap='16'
+      max
+    >
+      <Skeleton
+        className={cls.avatar}
+        width={200}
+        height={200}
+        borderRadius='50%'
+      />
+      <Skeleton
+        width={300}
+        height={32}
+      />
+      <Skeleton
+        width={600}
+        height={24}
+      />
+      <Skeleton
+        width='100%'
+        height={200}
+      />
+      <Skeleton
+        width='100%'
+        height={200}
+      />
+    </VStack>
   );
 };
 
@@ -133,32 +171,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   let content;
 
   if (isLoading) {
-    content = (
-      <>
-        <SkeletonDeprecated
-          className={cls.avatar}
-          width={200}
-          height={200}
-          borderRadius='50%'
-        />
-        <SkeletonDeprecated
-          width={300}
-          height={32}
-        />
-        <SkeletonDeprecated
-          width={600}
-          height={24}
-        />
-        <SkeletonDeprecated
-          width='100%'
-          height={200}
-        />
-        <SkeletonDeprecated
-          width='100%'
-          height={200}
-        />
-      </>
-    );
+    content = <ArticleDetailsSkeleton />;
   } else if (error) {
     content = (
       <TextDeprecated
