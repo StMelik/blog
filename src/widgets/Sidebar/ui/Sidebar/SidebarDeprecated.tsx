@@ -5,8 +5,7 @@ import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { getSidebarItems } from '../../model/selectors/getSidebarItems';
+import { useGetSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
 
@@ -21,7 +20,7 @@ export const SidebarDeprecated = memo((props: SidebarDeprecatedProps) => {
 
   const { t } = useTranslation();
 
-  const sidebarItemsList = useSelector(getSidebarItems);
+  const sidebarItemsList = useGetSidebarItems();
 
   const handleCollapsed = () => {
     setCollapsed((prev) => !prev);
