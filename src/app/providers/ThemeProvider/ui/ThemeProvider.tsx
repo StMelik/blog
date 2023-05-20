@@ -21,7 +21,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
 
   useEffect(() => {
     document.body.className = theme;
-  });
+  }, [theme]);
 
   useEffect(() => {
     if (isThemeInited || !defaultTheme) return;
