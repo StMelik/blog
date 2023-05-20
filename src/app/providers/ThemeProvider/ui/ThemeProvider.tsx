@@ -1,8 +1,7 @@
-import { FC, ReactNode, useEffect, useMemo, useState } from 'react';
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/constants/localStorage';
 import { Theme } from '@/shared/constants/theme';
 import { ThemeContext } from '@/shared/lib/context/ThemeContext';
-import { useGetJsonSettings } from '@/entities/User';
-import { LOCAL_STORAGE_THEME_KEY } from '@/shared/constants/localStorage';
+import { FC, ReactNode, useEffect, useMemo, useState } from 'react';
 
 interface ThemeProviderProps {
   children: ReactNode;
@@ -15,8 +14,6 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
   children,
   initialTheme
 }) => {
-  const { theme: defaultTheme } = useGetJsonSettings();
-
   const [theme, setTheme] = useState<Theme>(
     initialTheme || fallbackTheme || Theme.DARK
   );
@@ -28,11 +25,11 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
   }, [theme]);
 
   useEffect(() => {
-    if (isThemeInited || !defaultTheme) return;
+    if (isThemeInited || !initialTheme) return;
 
-    setTheme(defaultTheme);
+    setTheme(initialTheme);
     setIsThemeInited(true);
-  }, [defaultTheme, isThemeInited]);
+  }, [initialTheme, isThemeInited]);
 
   const defaultProps = useMemo(
     () => ({

@@ -4,6 +4,7 @@ import { ProfileCard } from './ProfileCard';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import avatar from '@/shared/assets/tests/storybook.jpg';
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator';
 
 export default {
   title: 'entities/ProfileCard',
@@ -30,6 +31,21 @@ Primary.args = {
     avatar
   }
 };
+
+export const PrimaryRedesign = Template.bind({});
+PrimaryRedesign.args = {
+  data: {
+    age: 25,
+    city: 'Moscow',
+    country: Country.Russia,
+    currency: Currency.RUB,
+    first: 'Станислав',
+    lastname: 'Мелещик',
+    username: 'X44',
+    avatar
+  }
+};
+PrimaryRedesign.decorators = [FeatureFlagsDecorator({ isAppRedesigned: true })];
 
 export const WithError = Template.bind({});
 WithError.args = {

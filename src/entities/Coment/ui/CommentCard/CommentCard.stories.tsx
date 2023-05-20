@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react/';
 import { CommentCard } from './CommentCard';
 
 import Avatar from '@/shared/assets/tests/storybook.jpg';
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator';
 
 export default {
   title: 'entities/Comment/CommentCard',
@@ -28,6 +29,21 @@ Primary.args = {
     }
   }
 };
+
+export const PrimaryRedesign = Template.bind({});
+PrimaryRedesign.args = {
+  comment: {
+    id: '1',
+    text: '1 comment',
+    user: {
+      id: '1',
+      username: 'AUG',
+      avatar: Avatar
+    }
+  }
+};
+
+PrimaryRedesign.decorators = [FeatureFlagsDecorator({ isAppRedesigned: true })];
 
 export const NoAvatar = Template.bind({});
 NoAvatar.args = {

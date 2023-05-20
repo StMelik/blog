@@ -8,12 +8,13 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { LoaderPage } from '@/widgets/LoaderPage';
 import { NavBar } from '@/widgets/NavBar';
 import { Sidebar } from '@/widgets/Sidebar';
-import { Suspense, useEffect } from 'react';
+import { memo, Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppToolbar } from './lib/useAppToolbar';
 import { AppRouter } from './providers/router';
+import { withTheme } from './providers/ThemeProvider/ui/withTheme';
 
-export function App() {
+function App() {
   const dispatch = useAppDispatch();
 
   const inited = useSelector(getUserInited);
@@ -77,3 +78,5 @@ export function App() {
     />
   );
 }
+
+export default withTheme(memo(App));
