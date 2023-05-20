@@ -1,5 +1,6 @@
 /* eslint-disable i18next/no-literal-string */
 import { getUserInited, initAuthData } from '@/entities/User';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeature } from '@/shared/lib/features';
@@ -23,7 +24,20 @@ export function App() {
   }, [dispatch, inited]);
 
   if (!inited) {
-    return <LoaderPage />;
+    return (
+      <ToggleFeature
+        feature='isAppRedesigned'
+        on={
+          <div
+            id='app'
+            className='app-redesigned'
+          >
+            <AppLoaderLayout />
+          </div>
+        }
+        off={<LoaderPage />}
+      />
+    );
   }
 
   return (
