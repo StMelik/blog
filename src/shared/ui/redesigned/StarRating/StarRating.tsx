@@ -2,14 +2,23 @@ import { memo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './StarRating.module.scss';
 import StarIcon from '@/shared/assets/icons/star.svg';
-import { Icon as IconDeprecated } from '../Icon/Icon';
+import { Icon as IconDeprecated } from '../../deprecated/Icon/Icon';
 import { ToggleFeature, toggleFeatures } from '@/shared/lib/features';
-import { Icon } from '../../redesigned/Icon';
+import { Icon } from '../Icon';
 
 interface StarRatingProps {
   className?: string;
+  /**
+   * Вызывается при выборе кол-ва звезд
+   */
   onSelect?: (starsCount: number) => void;
+  /**
+   * Размер звезд
+   */
   size?: number;
+  /**
+   * Кол-во выбранных звезд
+   */
   selectedStars?: number;
 }
 

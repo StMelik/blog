@@ -30,6 +30,7 @@
 
 .withAddon {
   padding: 0 16px;
+  gap: 8px
 }
 
 .clear {
@@ -87,25 +88,6 @@
   &.error {
     background-color: var(--cancel-redesigned);
   }
-}
-
-.square {
-  padding: 0;
-}
-
-.square.m {
-  width: var(--font-line-m);
-  height: var(--font-line-m);
-}
-
-.square.l {
-  width: var(--font-line-l);
-  height: var(--font-line-l);
-}
-
-.square.xl {
-  width: var(--font-line-xl);
-  height: var(--font-line-xl);
 }
 
 .m {

@@ -16,8 +16,17 @@ export interface DropdownItem {
 
 interface DropdownProps {
   className?: string;
+  /**
+   * Элементы Dropdown
+   */
   items: DropdownItem[];
+  /**
+   * Кнопка открывания
+   */
   trigger: ReactNode;
+  /**
+   * Направление отрывания списка
+   */
   direction?: DropdownDirection;
 }
 
@@ -34,11 +43,12 @@ export const Dropdown = (props: DropdownProps) => {
       <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
       <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
         {items.map((item, i) => {
-          const content = (
-            { active }: { active: boolean } // button ??
-          ) => (
+          const content = ({ active }: { active: boolean }) => (
             <button
-              className={classNames(cls.item, { [popupCls.active]: active })}
+              className={classNames(cls.item, {
+                [popupCls.active]: active,
+                [popupCls.disabled]: item.disabled
+              })}
               onClick={item.onClick}
               type='button'
               disabled={item.disabled}

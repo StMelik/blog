@@ -12,6 +12,9 @@ import cls from './Code.module.scss';
 
 interface CodeProps {
   className?: string;
+  /**
+   * Содержимое блока (код)
+   */
   text: string;
 }
 

@@ -1,14 +1,31 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react/';
-import { Dropdown } from './Dropdown';
+import { ComponentMeta, ComponentStory } from '@storybook/react/';
 import { Button } from '../../../Button';
+import { Dropdown } from './Dropdown';
 
 export default {
-  title: 'shared/Dropdown',
+  title: 'shared/Popups/Dropdown',
   component: Dropdown,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+  args: {
+    trigger: <Button>Открыть Dropdown</Button>,
+    direction: 'bottom right',
+    items: [
+      {
+        content: 'Главная',
+        disabled: true
+      },
+      {
+        content: 'Профиль'
+      },
+      {
+        content: 'Настройки'
+      }
+    ]
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ padding: 150, width: 'max-content' }}>{Story()}</div>
+    )
+  ]
 } as ComponentMeta<typeof Dropdown>;
 
 const Template: ComponentStory<typeof Dropdown> = (args) => (
@@ -16,17 +33,18 @@ const Template: ComponentStory<typeof Dropdown> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {
-  trigger: <Button>Open</Button>,
-  items: [
-    {
-      content: 'first'
-    },
-    {
-      content: 'second'
-    },
-    {
-      content: 'third'
-    }
-  ]
+
+export const BottomLeft = Template.bind({});
+BottomLeft.args = {
+  direction: 'bottom left'
+};
+
+export const TopLeft = Template.bind({});
+TopLeft.args = {
+  direction: 'top left'
+};
+
+export const TopRight = Template.bind({});
+TopRight.args = {
+  direction: 'top right'
 };

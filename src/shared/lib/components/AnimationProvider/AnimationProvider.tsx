@@ -22,9 +22,15 @@ const AnimationContext = createContext<AnimationContextPayload>({});
 const getAsyncAnimationModules = () =>
   Promise.all([import('@react-spring/web'), import('@use-gesture/react')]);
 
+/**
+ * хук для использования асинхронно подключенных библиотек Gesture и Spring
+ */
 export const useAnimationLibs = () =>
   useContext(AnimationContext) as Required<AnimationContextPayload>;
 
+/**
+ * Провайдер для асинхронного подключения Gesture и Spring библиотек
+ */
 export const AnimationProvider = ({ children }: { children: ReactNode }) => {
   const SpringRef = useRef<SpringType>();
   const GestureRef = useRef<GestureType>();

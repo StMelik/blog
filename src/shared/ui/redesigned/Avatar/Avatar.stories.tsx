@@ -6,9 +6,6 @@ import AvatarImg from '@/shared/assets/tests/storybook.jpg';
 export default {
   title: 'shared/Avatar',
   component: Avatar,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  },
   args: {
     src: AvatarImg
   }
@@ -17,11 +14,26 @@ export default {
 const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {
-  size: 150
-};
 
 export const Small = Template.bind({});
 Small.args = {
   size: 50
+};
+
+export const Error = Template.bind({});
+Error.args = {
+  src: ''
+};
+
+export const ErrorWithUsername = Template.bind({});
+ErrorWithUsername.args = {
+  src: '',
+  size: 50,
+  username: 'Admin'
+};
+
+export const WithUsername = Template.bind({});
+WithUsername.args = {
+  size: 50,
+  username: 'Admin'
 };

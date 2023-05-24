@@ -2,19 +2,40 @@ import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Text.module.scss';
 
-export type TextVariant = 'primary' | 'accent' | 'error';
-export type TextAlign = 'right' | 'left' | 'center';
-export type TextSize = 's' | 'm' | 'l';
+type TextVariant = 'primary' | 'accent' | 'error';
+type TextAlign = 'right' | 'left' | 'center';
+type TextSize = 's' | 'm' | 'l';
 type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 interface TextProps {
   className?: string;
+  /**
+   * h элемент
+   */
   title?: string | null;
+  /**
+   * p элемент
+   */
   text?: string | null;
+  /**
+   * Вариант отображения текста
+   */
   variant?: TextVariant;
+  /**
+   * Выравнивание текста по горизонтали
+   */
   align?: TextAlign;
+  /**
+   * Размер текста
+   */
   size?: TextSize;
+  /**
+   * Выбор h тега для title
+   */
   HeaderTag?: HeaderTagType;
+  /**
+   * Жирность
+   */
   bold?: boolean;
   'data-testid'?: string;
 }

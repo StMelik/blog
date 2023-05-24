@@ -1,26 +1,23 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react/';
+import { ComponentMeta, ComponentStory } from '@storybook/react/';
 import { ListBox } from './ListBox';
 
 export default {
-  title: 'shared/ListBox',
+  title: 'shared/Popups/ListBox',
   component: ListBox,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  },
   args: {
-    value: 'ListBox',
+    direction: 'bottom right',
     items: [
       {
-        content: 'Content1Content1',
-        value: '1'
+        content: 'Хонда',
+        value: '1',
+        disabled: true
       },
       {
-        content: 'Content2Content2',
+        content: 'Мерседес',
         value: '2'
       },
       {
-        content: 'Content3Content3',
+        content: 'Астон Мартин',
         value: '3'
       }
     ]
@@ -38,14 +35,28 @@ const Template: ComponentStory<typeof ListBox> = (args) => (
   <ListBox {...args} />
 );
 
+export const Primary = Template.bind({});
+Primary.args = {};
+
+export const WithDefaultValue = Template.bind({});
+WithDefaultValue.args = {
+  defaultValue: 'Выбор марки авто'
+};
+
+export const WithLabel = Template.bind({});
+WithLabel.args = {
+  label: 'Выбор марки авто'
+};
+
+export const Readonly = Template.bind({});
+Readonly.args = {
+  readonly: true,
+  label: 'Выбор марки авто'
+};
+
 export const BottomLeft = Template.bind({});
 BottomLeft.args = {
   direction: 'bottom left'
-};
-
-export const BottomRight = Template.bind({});
-BottomRight.args = {
-  direction: 'bottom right'
 };
 
 export const TopLeft = Template.bind({});

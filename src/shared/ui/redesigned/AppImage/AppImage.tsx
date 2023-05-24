@@ -8,7 +8,13 @@ import {
 
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
+  /**
+   * Отображается при загрузке изображения
+   */
   fallback?: ReactElement;
+  /**
+   * Отображается если изображение не загрузилось
+   */
   errorFallback?: ReactElement;
 }
 

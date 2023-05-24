@@ -4,12 +4,9 @@ import { AppLink } from './AppLink';
 export default {
   title: 'shared/AppLink',
   component: AppLink,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  },
   args: {
     to: '/',
-    children: 'Test'
+    children: 'Ссылка'
   }
 } as ComponentMeta<typeof AppLink>;
 
@@ -22,7 +19,7 @@ Primary.args = {
   variant: 'primary'
 };
 
-export const Inverted = Template.bind({});
-Inverted.args = {
+export const Red = Template.bind({});
+Red.args = {
   variant: 'red'
 };

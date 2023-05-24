@@ -18,12 +18,33 @@ export interface ListBoxItem<T extends string> {
 
 interface ListBoxProps<T extends string> {
   className?: string;
+  /**
+   * Элементы ListBox
+   */
   items?: ListBoxItem<T>[];
+  /**
+   * Выбранный элемент
+   */
   value?: T;
+  /**
+   * Отображать если не выбран элемент
+   */
   defaultValue?: string | null;
+  /**
+   * Вызывается при выборе элемента
+   */
   onChange: (value: T) => void;
+  /**
+   * Блокирует ListBox
+   */
   readonly?: boolean;
+  /**
+   * Направление отрывания списка
+   */
   direction?: DropdownDirection;
+  /**
+   * Название ListBox (надпись слева)
+   */
   label?: string | null;
 }
 

@@ -10,6 +10,9 @@ jest.mock('axios');
 
 const mockedAxios = jest.mocked(axios);
 
+/**
+ * Моковые запросы для тестов
+ */
 export class TestAsyncThunk<Return, Arg, RejectedValue> {
   dispatch: jest.MockedFn<any>;
 

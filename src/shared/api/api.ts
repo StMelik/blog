@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { USER_LOCALSTORAGE_KEY } from '@/shared/constants/localStorage';
+import { USER_LOCAL_STORAGE_KEY } from '@/shared/constants/localStorage';
 
 export const $api = axios.create({
   baseURL: __API__
@@ -7,7 +7,7 @@ export const $api = axios.create({
 
 $api.interceptors.request.use((config) => {
   config.headers.Authorization =
-    localStorage.getItem(USER_LOCALSTORAGE_KEY) || '';
+    localStorage.getItem(USER_LOCAL_STORAGE_KEY) || '';
 
   return config;
 });

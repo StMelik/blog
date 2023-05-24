@@ -4,8 +4,6 @@
   border-radius: 48px;
   padding: 8px;
   border: 2px solid var(--icon-redesigned);
-  height: 32px;
-  width: 100%;
 }
 
 .s {
@@ -48,6 +46,7 @@
   border: none;
   outline: none;
   color: var(--text-redesigned);
+  width: 100%;
 
   &:focus {
     outline: none;

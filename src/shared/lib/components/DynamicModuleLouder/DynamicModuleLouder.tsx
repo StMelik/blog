@@ -8,7 +8,6 @@ import {
 } from '@/app/providers/StoreProvider';
 
 export type ReducersList = {
-  // eslint-disable-next-line no-unused-vars
   [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
 };
 
@@ -18,6 +17,9 @@ interface DynamicModuleLouderProps {
   children: ReactElement;
 }
 
+/**
+ * HOC для асинхронного подключения редюсера
+ */
 export const DynamicModuleLouder = (props: DynamicModuleLouderProps) => {
   const { reducers, removeAfterUnmount, children } = props;
 

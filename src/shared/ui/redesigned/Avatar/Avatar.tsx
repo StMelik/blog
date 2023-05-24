@@ -10,9 +10,18 @@ import { HStack } from '../Stack';
 
 interface AvatarProps {
   className?: string;
+  /**
+   * Ссылка на фото
+   */
   src?: string;
   alt?: string;
+  /**
+   * Размер фото
+   */
   size?: number;
+  /**
+   * Имя профиля
+   */
   username?: string;
 }
 

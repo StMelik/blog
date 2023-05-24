@@ -49,6 +49,9 @@ export function TestProvider(props: TestProviderProps) {
   );
 }
 
+/**
+ * Обертка для теста компонентов
+ */
 export function componentRender(
   component: ReactNode,
   options: componentRenderOptions = {}

@@ -2,6 +2,9 @@ import { AppRouteByPathPattern, AppRoutes } from '@/shared/constants/router';
 import { useEffect, useState } from 'react';
 import { matchPath, useLocation } from 'react-router';
 
+/**
+ * хук для определения текущей страницы
+ */
 export function useRouteChange() {
   const location = useLocation();
 

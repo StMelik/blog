@@ -3,11 +3,17 @@ import { memo } from 'react';
 import { LinkProps, NavLink } from 'react-router-dom';
 import cls from './AppLink.module.scss';
 
-export type AppLinkTheme = 'primary' | 'red';
+type AppLinkTheme = 'primary' | 'red';
 
 interface AppLinkProps extends LinkProps {
   className?: string;
+  /**
+   * Вариант отображения ссылки
+   */
   variant?: AppLinkTheme;
+  /**
+   * Стиль для активной ссылки
+   */
   activeClassName?: string;
 }
 

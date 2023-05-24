@@ -7,6 +7,9 @@ import {
 import { useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 
+/**
+ * Позволяет использовать action через хук
+ */
 export function buildSlice<
   State,
   CaseReducers extends SliceCaseReducers<State>,

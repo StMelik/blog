@@ -1,9 +1,8 @@
-import { memo, ReactNode, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { memo, ReactNode, useCallback } from 'react';
 import { Card } from '../Card/Card';
-import cls from './Tabs.module.scss';
 import { Flex, FlexDirection } from '../Stack/Flex/Flex';
+import cls from './Tabs.module.scss';
 
 export interface TabItem {
   value: string;
@@ -12,16 +11,26 @@ export interface TabItem {
 
 interface TabsProps {
   className?: string;
+  /**
+   * Элементы
+   */
   tabs: TabItem[];
+  /**
+   * Выбранный элемент
+   */
   value: string;
+  /**
+   * Вызывается при клике на элемент
+   */
   onTabClick: (tab: TabItem) => void;
+  /**
+   * Направление элементов
+   */
   direction?: FlexDirection;
 }
 
 export const Tabs = memo((props: TabsProps) => {
   const { className, tabs, value, direction = 'row', onTabClick } = props;
-
-  const { t } = useTranslation();
 
   const handleClick = useCallback(
     (tab: TabItem) => () => onTabClick(tab),

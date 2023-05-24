@@ -15,9 +15,18 @@ export interface PopoverItem {
 
 interface PopoverProps {
   className?: string;
+  /**
+   * Кнопка открывания
+   */
   trigger: ReactNode;
+  /**
+   * Направление отрывания
+   */
   direction?: DropdownDirection;
   children: ReactNode;
+  /**
+   * Удалять из DOM при закрытии
+   */
   unmountPanel?: boolean;
 }
 

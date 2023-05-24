@@ -1,14 +1,10 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react/';
-import { Card } from './Card';
+import { ComponentMeta, ComponentStory } from '@storybook/react/';
 import { Text } from '../Text/Text';
+import { Card } from './Card';
 
 export default {
-  title: 'shared/Card',
-  component: Card,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+  title: 'shared/deprecated/Card',
+  component: Card
 } as ComponentMeta<typeof Card>;
 
 const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
@@ -22,4 +18,3 @@ Primary.args = {
     />
   )
 };
-Primary.decorators = [];

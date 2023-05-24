@@ -13,8 +13,17 @@ import { toggleFeatures } from '@/shared/lib/features';
 interface DrawerProps {
   className?: string;
   children: ReactNode;
+  /**
+   * Флаг открытия
+   */
   isOpen?: boolean;
+  /**
+   * Вызывается при закрытии
+   */
   onClose?: () => void;
+  /**
+   * Не реализованно !!!
+   */
   lazy?: boolean;
 }
 

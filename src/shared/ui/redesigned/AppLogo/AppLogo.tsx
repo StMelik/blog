@@ -6,6 +6,9 @@ import cls from './AppLogo.module.scss';
 
 interface AppLogoProps {
   className?: string;
+  /**
+   * Размер логотипа
+   */
   size?: number;
 }
 

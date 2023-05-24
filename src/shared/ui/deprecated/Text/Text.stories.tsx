@@ -1,14 +1,9 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react/';
-
+import { ComponentMeta, ComponentStory } from '@storybook/react/';
 import { Text, TextSize, TextTheme } from './Text';
 
 export default {
-  title: 'shared/Text',
+  title: 'shared/deprecated/Text',
   component: Text,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  },
   args: {
     title: 'Заголовок текста',
     text: 'Текст Текст Текст Текст'

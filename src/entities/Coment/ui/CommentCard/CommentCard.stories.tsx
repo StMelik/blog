@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react/';
 import { CommentCard } from './CommentCard';
 
 import Avatar from '@/shared/assets/tests/storybook.jpg';
-import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator';
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator';
 
 export default {
   title: 'entities/Comment/CommentCard',

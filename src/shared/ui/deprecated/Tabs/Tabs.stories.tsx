@@ -1,14 +1,10 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react/';
-import { Tabs } from './Tabs';
 import { action } from '@storybook/addon-actions';
+import { ComponentMeta, ComponentStory } from '@storybook/react/';
+import { Tabs } from './Tabs';
 
 export default {
-  title: 'shared/Tabs',
-  component: Tabs,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+  title: 'shared/deprecated/Tabs',
+  component: Tabs
 } as ComponentMeta<typeof Tabs>;
 
 const Template: ComponentStory<typeof Tabs> = (args) => <Tabs {...args} />;

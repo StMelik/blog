@@ -21,14 +21,41 @@ type InputSize = 's' | 'm' | 'l';
 
 interface InputProps extends HTMLInputProps {
   className?: string;
+  /**
+   * Значение инпута
+   */
   value?: string | number;
+  /**
+   * Название инпута
+   */
   label?: string | null;
+  /**
+   * Вызывается при изменении инпута
+   */
   onChange?: (value: string) => void;
+  /**
+   * Автофокусировка инпута
+   */
   autofocus?: boolean;
+  /**
+   * Надпись при отсутствии значения в инпуте
+   */
   placeholder?: string | null;
+  /**
+   * Блокировка инпута
+   */
   readonly?: boolean;
+  /**
+   * Дополнение слева от ввода
+   */
   addonLeft?: ReactNode;
+  /**
+   * Дополнение справа от ввода
+   */
   addonRight?: ReactNode;
+  /**
+   * Высота инпута
+   */
   size?: InputSize;
 }
 

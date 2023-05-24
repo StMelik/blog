@@ -10,7 +10,7 @@ import {
   ArticleType,
   ArticleView
 } from '@/entities/Article';
-import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/constants/localStorage';
+import { ARTICLES_VIEW_LOCAL_STORAGE_KEY } from '@/shared/constants/localStorage';
 import { SortOrder } from '@/shared/types/sort';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlesPageSchema } from '../types/ArticlesPageSchema';
@@ -45,7 +45,7 @@ export const articlesPageSlice = createSlice({
   reducers: {
     setView: (state, action: PayloadAction<ArticleView>) => {
       state.view = action.payload;
-      localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, action.payload);
+      localStorage.setItem(ARTICLES_VIEW_LOCAL_STORAGE_KEY, action.payload);
     },
 
     setSort: (state, action: PayloadAction<ArticleSortField>) => {
@@ -70,7 +70,7 @@ export const articlesPageSlice = createSlice({
 
     initState: (state) => {
       const view = localStorage.getItem(
-        ARTICLES_VIEW_LOCALSTORAGE_KEY
+        ARTICLES_VIEW_LOCAL_STORAGE_KEY
       ) as ArticleView;
       state.view = view;
       state.limit = view === ArticleView.GRID ? 9 : 4;

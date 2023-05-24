@@ -12,7 +12,6 @@ export const getQueryParams = (params: Record<string, string | undefined>) => {
 
 /**
  * Функция добавления параметров строки запроса в URL
- * @param params
  */
 export const addQueryParams = (params: Record<string, string>) => {
   window.history.pushState(null, '', getQueryParams(params));

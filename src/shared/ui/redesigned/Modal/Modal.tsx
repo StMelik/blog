@@ -10,8 +10,17 @@ import { toggleFeatures } from '@/shared/lib/features';
 interface ModalProps {
   className?: string;
   children: ReactNode;
+  /**
+   * Флаг открытия
+   */
   isOpen?: boolean;
+  /**
+   * Вызывается при закрытии
+   */
   onClose?: () => void;
+  /**
+   * Удаляет из DOM при закрытии
+   */
   lazy?: boolean;
 }
 
@@ -41,7 +50,6 @@ export const Modal: FC<ModalProps> = ({
         className={classNames(cls.modal, mods, [
           className,
           theme,
-          'app_modal',
           toggleFeatures({
             name: 'isAppRedesigned',
             on: () => cls.modalNew,
