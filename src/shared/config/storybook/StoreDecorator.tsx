@@ -6,7 +6,7 @@ import { profileReducer } from '@/features/EditableProfileCard/testing';
 import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLouder/DynamicModuleLouder';
 import { Story } from '@storybook/react/types-6-0';
-import '../../../../app/styles/index.scss';
+import '../../../app/styles/index.scss';
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,

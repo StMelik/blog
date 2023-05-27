@@ -1,13 +1,11 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react/';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { ComponentMeta, ComponentStory } from '@storybook/react/';
 import { DetailsContainer } from './DetailsContainer';
 
 export default {
-  title: 'pages/DetailsContainer',
+  title: 'pages/ArticleDetailsPage/DetailsContainer',
   component: DetailsContainer,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+  decorators: [StoreDecorator({})]
 } as ComponentMeta<typeof DetailsContainer>;
 
 const Template: ComponentStory<typeof DetailsContainer> = (args) => (

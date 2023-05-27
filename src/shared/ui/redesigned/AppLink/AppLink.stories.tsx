@@ -1,9 +1,11 @@
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator';
 import { ComponentMeta, ComponentStory } from '@storybook/react/';
 import { AppLink } from './AppLink';
 
 export default {
   title: 'shared/AppLink',
   component: AppLink,
+  decorators: [RouterDecorator()],
   args: {
     to: '/',
     children: 'Ссылка'

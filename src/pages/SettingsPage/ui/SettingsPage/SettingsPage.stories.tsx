@@ -1,14 +1,12 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import SettingsPage from './SettingsPage';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator';
 
 export default {
   title: 'pages/SettingsPage',
   component: SettingsPage,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+  decorators: [StoreDecorator({}), RouterDecorator()]
 } as ComponentMeta<typeof SettingsPage>;
 
 const Template: ComponentStory<typeof SettingsPage> = (args) => (

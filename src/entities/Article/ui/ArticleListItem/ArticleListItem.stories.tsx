@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react/';
 import { ArticleListItem } from './ArticleListItem';
 import { Article } from '../../model/types/Article';
 import { ArticleView } from '../../model/consts/articleConsts';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator';
 
 const article = {
   id: '1',
@@ -83,9 +84,7 @@ const article = {
 export default {
   title: 'entities/Article/ArticleListItem',
   component: ArticleListItem,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  },
+  decorators: [RouterDecorator()],
   args: {
     article
   }

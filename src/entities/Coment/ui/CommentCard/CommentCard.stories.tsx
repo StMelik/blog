@@ -1,16 +1,13 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react/';
-import { CommentCard } from './CommentCard';
-
 import Avatar from '@/shared/assets/tests/storybook.jpg';
 import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator';
+import { ComponentMeta, ComponentStory } from '@storybook/react/';
+import { CommentCard } from './CommentCard';
 
 export default {
   title: 'entities/Comment/CommentCard',
   component: CommentCard,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+  decorators: [RouterDecorator()]
 } as ComponentMeta<typeof CommentCard>;
 
 const Template: ComponentStory<typeof CommentCard> = (args) => (

@@ -26,7 +26,7 @@ const initialState: ArticlesPageSchema = {
   sort: ArticleSortField.TITLE,
   search: '',
   order: 'asc',
-  view: ArticleView.GRID,
+  view: ArticleView.LIST,
   type: ArticleType.ALL,
   _inited: false
 };

@@ -1,15 +1,12 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react/';
-import { CommentList } from './CommentList';
-
 import Avatar from '@/shared/assets/tests/storybook.jpg';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator';
+import { ComponentMeta, ComponentStory } from '@storybook/react/';
+import { CommentList } from './CommentList';
 
 export default {
   title: 'entities/Comment/CommentList',
   component: CommentList,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+  decorators: [RouterDecorator()]
 } as ComponentMeta<typeof CommentList>;
 
 const Template: ComponentStory<typeof CommentList> = (args) => (

@@ -6,9 +6,6 @@ import { NotificationList } from './NotificationList';
 export default {
   title: 'entities/Notification/NotificationList',
   component: NotificationList,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  },
   decorators: [withMock]
 } as ComponentMeta<typeof NotificationList>;
 
@@ -17,9 +14,7 @@ const Template: ComponentStory<typeof NotificationList> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
 Primary.decorators = [StoreDecorator({})];
-
 Primary.parameters = {
   mockData: [
     {

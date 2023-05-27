@@ -1,13 +1,11 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react/';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { ComponentMeta, ComponentStory } from '@storybook/react/';
 import { FiltersContainer } from './FiltersContainer';
 
 export default {
-  title: 'pages/FiltersContainer',
+  title: 'pages/ArticlesPage/FiltersContainer',
   component: FiltersContainer,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+  decorators: [StoreDecorator({})]
 } as ComponentMeta<typeof FiltersContainer>;
 
 const Template: ComponentStory<typeof FiltersContainer> = (args) => (

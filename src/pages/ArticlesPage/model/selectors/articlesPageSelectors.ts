@@ -8,7 +8,7 @@ export const getArticlesPageError = (state: StateSchema) =>
   state.articlesPage?.error ?? '';
 
 export const getArticlesPageView = (state: StateSchema) =>
-  state.articlesPage?.view ?? ArticleView.GRID;
+  state.articlesPage?.view ?? ArticleView.LIST;
 
 export const getArticlesPageNum = (state: StateSchema) =>
   state.articlesPage?.page ?? 1;

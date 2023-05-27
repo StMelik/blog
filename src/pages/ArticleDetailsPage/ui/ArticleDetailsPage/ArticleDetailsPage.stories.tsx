@@ -1,7 +1,7 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react/';
 import ArticleDetailsPage from './ArticleDetailsPage';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator';
 
 // const article: Article = {
 //   id: '1',
@@ -48,9 +48,6 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 export default {
   title: 'pages/ArticleDetailsPage',
   component: ArticleDetailsPage,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  },
   decorators: [StoreDecorator({})]
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
@@ -60,4 +57,4 @@ const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.decorators = [];
+Primary.decorators = [RouterDecorator([':id', '1'])];

@@ -1,13 +1,11 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react/';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { ComponentMeta, ComponentStory } from '@storybook/react/';
 import { ViewSelectorContainer } from './ViewSelectorContainer';
 
 export default {
-  title: 'pages/ViewSelectorContainer',
+  title: 'pages/ArticlesPage/ViewSelectorContainer',
   component: ViewSelectorContainer,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+  decorators: [StoreDecorator({})]
 } as ComponentMeta<typeof ViewSelectorContainer>;
 
 const Template: ComponentStory<typeof ViewSelectorContainer> = (args) => (

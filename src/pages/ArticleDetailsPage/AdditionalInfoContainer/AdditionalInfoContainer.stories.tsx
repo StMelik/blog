@@ -1,13 +1,12 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react/';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { ComponentMeta, ComponentStory } from '@storybook/react/';
 import { AdditionalInfoContainer } from './AdditionalInfoContainer';
 
 export default {
-  title: 'pages/AdditionalInfoContainer',
+  title: 'pages/ArticleDetailsPage/AdditionalInfoContainer',
   component: AdditionalInfoContainer,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+  decorators: [RouterDecorator()]
 } as ComponentMeta<typeof AdditionalInfoContainer>;
 
 const Template: ComponentStory<typeof AdditionalInfoContainer> = (args) => (
@@ -16,4 +15,16 @@ const Template: ComponentStory<typeof AdditionalInfoContainer> = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.decorators = [];
+Primary.decorators = [
+  StoreDecorator({
+    articleDetails: {
+      data: {
+        createdAt: '25.01.2029',
+        views: 2532,
+        user: {
+          username: 'Admin'
+        }
+      }
+    }
+  })
+];

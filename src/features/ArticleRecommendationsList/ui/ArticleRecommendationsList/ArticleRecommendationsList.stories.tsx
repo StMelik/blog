@@ -1,18 +1,14 @@
-import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { ArticleRecommendationsList } from './ArticleRecommendationsList';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { Article } from '@/entities/Article';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { ArticleRecommendationsList } from './ArticleRecommendationsList';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator';
 
 export default {
   title: 'features/ArticleRecommendationsList',
   component: ArticleRecommendationsList,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  },
-  decorators: [withMock]
+  decorators: [withMock, RouterDecorator()]
 } as ComponentMeta<typeof ArticleRecommendationsList>;
 
 const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => (
@@ -20,7 +16,6 @@ const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => (
 );
 
 export const Normal = Template.bind({});
-Normal.args = {};
 
 const article: Article = {
   id: '1',
@@ -38,7 +33,7 @@ Normal.decorators = [StoreDecorator({})];
 Normal.parameters = {
   mockData: [
     {
-      url: `${__API__}/articles?_limit=3`,
+      url: `${__API__}/articles?_limit=3&_expand=user`,
       method: 'GET',
       status: 200,
       response: [

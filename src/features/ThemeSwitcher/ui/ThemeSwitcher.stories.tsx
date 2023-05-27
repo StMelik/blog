@@ -1,13 +1,12 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react/';
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { ComponentMeta, ComponentStory } from '@storybook/react/';
 import { ThemeSwitcher } from './ThemeSwitcher';
 
 export default {
   title: 'features/ThemeSwitcher',
   component: ThemeSwitcher,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+  decorators: [StoreDecorator({})]
 } as ComponentMeta<typeof ThemeSwitcher>;
 
 const Template: ComponentStory<typeof ThemeSwitcher> = (args) => (
@@ -15,4 +14,8 @@ const Template: ComponentStory<typeof ThemeSwitcher> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+
+export const PrimaryRedesigned = Template.bind({});
+PrimaryRedesigned.decorators = [
+  FeatureFlagsDecorator({ isAppRedesigned: true })
+];

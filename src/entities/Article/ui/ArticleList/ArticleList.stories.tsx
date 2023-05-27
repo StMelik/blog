@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react/';
 import { ArticleList } from './ArticleList';
 import { Article } from '../../model/types/Article';
 import { ArticleView } from '../../model/consts/articleConsts';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator';
 
 const article = {
   id: '1',
@@ -83,9 +84,7 @@ const article = {
 export default {
   title: 'entities/Article/ArticleList',
   component: ArticleList,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  },
+  decorators: [RouterDecorator()],
   args: {
     articles: new Array(9).fill(0).map((item, index) => ({
       ...article,

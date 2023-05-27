@@ -1,8 +1,8 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react/';
-import { ArticleListItemDeprecated } from './ArticleListItemDeprecated';
-import { Article } from '../../../model/types/Article';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator';
+import { ComponentMeta, ComponentStory } from '@storybook/react/';
 import { ArticleView } from '../../../model/consts/articleConsts';
+import { Article } from '../../../model/types/Article';
+import { ArticleListItemDeprecated } from './ArticleListItemDeprecated';
 
 const article = {
   id: '1',
@@ -83,9 +83,7 @@ const article = {
 export default {
   title: 'entities/Article/ArticleListItemDeprecated',
   component: ArticleListItemDeprecated,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  },
+  decorators: [RouterDecorator()],
   args: {
     article
   }
